@@ -9,7 +9,7 @@ import FamilyTree from './components/FamilyTree';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-slate-900 min-h-screen text-slate-300 antialiased">
+    <div className="bg-black min-h-screen text-slate-300 antialiased">
       <Header />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Section title="Executive Summary: A War of Total Societal Convulsion">

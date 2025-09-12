@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const eventIcons = [
@@ -114,7 +115,7 @@ const Timeline: React.FC = () => {
               {/* Desktop Left Side Content */}
               <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? '' : 'text-right'}`}>
                 {index % 2 !== 0 && (
-                  <div className={`bg-slate-800 p-6 rounded-lg shadow-xl border transition-colors duration-300 ${isActive ? 'border-amber-400' : 'border-slate-700'}`}>
+                  <div className={`bg-gray-900 p-6 rounded-lg shadow-xl border transition-colors duration-300 ${isActive ? 'border-amber-400' : 'border-slate-700'}`}>
                     <h3 className="mb-3 font-bold text-amber-400 text-xl">{event.title}</h3>
                     <p className="text-sm leading-snug tracking-wide text-slate-300">{event.description}</p>
                   </div>
@@ -130,7 +131,7 @@ const Timeline: React.FC = () => {
               
               {/* Right side for Desktop (even indices) and all content for Mobile */}
               <div className="w-full md:w-5/12 ml-12 md:ml-0">
-                <div className={`${index % 2 !== 0 ? 'md:hidden' : 'md:block'} bg-slate-800 p-6 rounded-lg shadow-xl border transition-colors duration-300 ${isActive ? 'border-amber-400' : 'border-slate-700'}`}>
+                <div className={`${index % 2 !== 0 ? 'md:hidden' : 'md:block'} bg-gray-900 p-6 rounded-lg shadow-xl border transition-colors duration-300 ${isActive ? 'border-amber-400' : 'border-slate-700'}`}>
                   <h3 className="mb-3 font-bold text-amber-400 text-xl">{event.title}</h3>
                   <p className="text-sm leading-snug tracking-wide text-slate-300">{event.description}</p>
                 </div>

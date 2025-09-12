@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const Header: React.FC = () => {
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center bg-cover bg-center text-white animated-bg transition-all duration-500 ease-in-out ${isScrolled ? 'h-20 shadow-lg' : 'h-80 sm:h-96'}`}
         style={{ backgroundImage: 'url(https://picsum.photos/seed/kurukshetra/1920/1080)' }}
       >
-        <div className={`absolute inset-0 bg-slate-900 transition-opacity duration-500 ${isScrolled ? 'bg-opacity-90 backdrop-blur-md' : 'bg-opacity-70 backdrop-blur-sm'}`}></div>
+        <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${isScrolled ? 'bg-opacity-90 backdrop-blur-md' : 'bg-opacity-70 backdrop-blur-sm'}`}></div>
         <div className="relative z-10 px-4 transition-all duration-500 ease-in-out">
           <h1 className={`font-bold tracking-wider leading-tight text-amber-300 drop-shadow-lg transition-all duration-500 ease-in-out ${isScrolled ? 'text-3xl' : 'text-5xl md:text-7xl'}`}>
             The Mahabharata
