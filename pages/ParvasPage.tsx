@@ -1,3 +1,4 @@
+import React from 'react';
 import ParvasSection from '../components/ParvasSection';
 
 const ParvasPage: React.FC = () => (

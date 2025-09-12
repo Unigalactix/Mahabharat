@@ -1,3 +1,4 @@
+import React from 'react';
 import { PARVAS } from '../parvas';
 
 const ParvasSection: React.FC = () => (
