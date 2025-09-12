@@ -4,6 +4,7 @@ import MenuBar from './components/MenuBar';
 import GaneshaChatbot from './components/GaneshaChatbot';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
 import FamilyTreePage from './pages/FamilyTreePage';
 import ParvasPage from './pages/ParvasPage';
 import KeyMomentsPage from './pages/KeyMomentsPage';
@@ -18,7 +19,8 @@ const App: React.FC = () => {
         <MenuBar />
         <main>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/family-tree" element={<FamilyTreePage />} />
             <Route path="/parvas" element={<ParvasPage />} />
             <Route path="/kurukshetra" element={<KurukshetraPage />} />
