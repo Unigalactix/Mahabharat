@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useLayoutEffect, forwardRef } from 'react';
+import { playSound } from '../utils/sound';
 import { CrownIcon, SwordIcon, SparkleIcon, FemaleIcon, SageIcon, ShieldIcon, PersonIcon } from './CharacterIcons';
 import { CHARACTERS } from '../constants';
 
@@ -21,13 +22,30 @@ const TreeNode = forwardRef<HTMLDivElement, TreeNodeProps>(
     <div
       ref={ref}
       className={`relative group p-2 bg-gray-900 border ${border} rounded-lg shadow-lg flex items-center min-w-[170px] sm:min-w-[190px] cursor-pointer hover:bg-gray-800/50 transition-colors duration-200 ${className}`}
-      onClick={onClick}
+      onClick={() => { onClick(); playSound('click.mp3'); }}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { onClick(); playSound('click.mp3'); } }}
       aria-label={`Details for ${name}`}
     >
-      <img src={silhouetteSrc} alt="" className="w-10 h-10 rounded-full mr-3 bg-gray-800 flex-shrink-0 border-2 border-slate-600" />
+      {/* Emoji avatar based on name/role */}
+      <span
+        className="w-10 h-10 rounded-full mr-3 bg-gray-800 flex-shrink-0 border-2 border-slate-600 flex items-center justify-center text-2xl select-none"
+        aria-hidden="true"
+      >
+        {(() => {
+          const n = name.toLowerCase();
+          if (n.includes('king') || n.includes('queen') || n.includes('yudhishthira') || n.includes('duryodhana')) return '👑';
+          if (n.includes('sage') || n.includes('vyasa') || n.includes('kripa')) return '🧙‍♂️';
+          if (n.includes('bhishma') || n.includes('drona')) return '🧓';
+          if (n.includes('kunti') || n.includes('gandhari') || n.includes('satyavati') || n.includes('draupadi')) return '👩';
+          if (n.includes('arjuna') || n.includes('bhima') || n.includes('nakula') || n.includes('sahadeva') || n.includes('karna')) return '👨';
+          if (n.includes('child') || n.includes('son') || n.includes('abhimanyu')) return '👦';
+          if (n.includes('daughter') || n.includes('girl')) return '👧';
+          if (n.includes('servant')) return '🧑';
+          return '👤';
+        })()}
+      </span>
       <div className="text-left flex-grow">
         <div className="flex items-center">
           {icon}
@@ -79,37 +97,45 @@ const RelationshipLines: React.FC<{ lines: LineCoord[] }> = ({ lines }) => (
         <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
       </marker>
     </defs>
-    {lines.map(({ key, x1, y1, x2, y2, color, label, dashed }) => (
-      <g key={key}>
-        <line
-          x1={x1}
-          y1={y1}
-          x2={x2}
-          y2={y2}
-          stroke={color}
-          strokeWidth="2"
-          strokeDasharray={dashed ? '5,5' : 'none'}
-          className="opacity-70"
-          markerEnd="url(#arrowhead)"
-          style={{ color: color }}
-        />
-        <text
-          x={(x1 + x2) / 2}
-          y={(y1 + y2) / 2}
-          fill={color}
-          fontSize="11"
-          fontWeight="bold"
-          textAnchor="middle"
-          dy="-6"
-          className="paint-order-stroke"
-          stroke="#111827"
-          strokeWidth="3px"
-          strokeLinejoin="round"
-        >
-          {label}
-        </text>
-      </g>
-    ))}
+    {lines.map(({ key, x1, y1, x2, y2, color, label, dashed }) => {
+      // Calculate control points for a smooth cubic Bezier curve
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      // Curve amount: more for vertical, less for horizontal
+      const curve = Math.max(Math.abs(dx), Math.abs(dy)) * 0.3;
+      const c1x = x1 + (dx === 0 ? 0 : curve * Math.sign(dx));
+      const c1y = y1 + (dy === 0 ? 0 : curve * Math.sign(dy));
+      const c2x = x2 - (dx === 0 ? 0 : curve * Math.sign(dx));
+      const c2y = y2 - (dy === 0 ? 0 : curve * Math.sign(dy));
+      const pathD = `M ${x1} ${y1} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${x2} ${y2}`;
+      return (
+        <g key={key}>
+          <path
+            d={pathD}
+            stroke={color}
+            strokeWidth="2"
+            strokeDasharray={dashed ? '5,5' : 'none'}
+            className="opacity-70"
+            markerEnd="url(#arrowhead)"
+            style={{ color: color, fill: 'none' }}
+          />
+          <text
+            x={(x1 + x2) / 2}
+            y={(y1 + y2) / 2 - 6}
+            fill={color}
+            fontSize="11"
+            fontWeight="bold"
+            textAnchor="middle"
+            className="paint-order-stroke"
+            stroke="#111827"
+            strokeWidth="3px"
+            strokeLinejoin="round"
+          >
+            {label}
+          </text>
+        </g>
+      );
+    })}
   </svg>
 );
 
@@ -530,17 +556,10 @@ const FamilyTree: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <h3 id="character-modal-title" className="text-3xl font-bold text-amber-400 mb-4">{selectedCharacterName}</h3>
-            {selectedCharacterData ? (
-              <>
-                <p className="text-amber-300 text-lg mb-4 italic">{selectedCharacterData.role}</p>
-                <p className="text-slate-300 leading-relaxed">{selectedCharacterData.description}</p>
-              </>
-            ) : (
-              <p className="text-slate-300 leading-relaxed">
-                Detailed information for{' '}
-                <span className="font-semibold text-white">{selectedCharacterName}</span> is not available in the key participants list. This character plays a role in the broader lineage of the Kuru dynasty.
-              </p>
-            )}
+            <>
+              <p className="text-amber-300 text-lg mb-4 italic">{selectedCharacterData?.role || 'No role information available.'}</p>
+              <p className="text-slate-300 leading-relaxed">{selectedCharacterData?.description || 'No description available for this character.'}</p>
+            </>
             <button
               onClick={handleCloseModal}
               className="mt-6 px-5 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-900"

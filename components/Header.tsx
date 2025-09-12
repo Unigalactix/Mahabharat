@@ -1,38 +1,45 @@
 
 import React, { useState, useEffect } from 'react';
+import { playSound } from '../utils/sound';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Set state based on scroll position
       setIsScrolled(window.scrollY > 50);
     };
-
-    // Add event listener
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Clean up event listener
+    // Play hero sound on mount if not scrolled
+    if (window.scrollY <= 50) {
+      playSound('hero.mp3');
+    }
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center bg-cover bg-center text-white animated-bg transition-all duration-500 ease-in-out ${isScrolled ? 'h-20 shadow-lg' : 'h-80 sm:h-96'}`}
-        style={{ backgroundImage: 'url(https://picsum.photos/seed/kurukshetra/1920/1080)' }}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center bg-cover bg-center text-white transition-all duration-500 ease-in-out ${isScrolled ? 'h-20 shadow-lg' : 'h-80 sm:h-96'}`}
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80'), "+
+            "radial-gradient(ellipse at 50% 40%, #ff7cfb 0%, #3b82f6 40%, #0f172a 100%)"
+        }}
       >
-        <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${isScrolled ? 'bg-opacity-90 backdrop-blur-md' : 'bg-opacity-70 backdrop-blur-sm'}`}></div>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${isScrolled ? 'bg-black bg-opacity-90 backdrop-blur-md' : 'bg-black bg-opacity-60 backdrop-blur-sm'}`}></div>
         <div className="relative z-10 px-4 transition-all duration-500 ease-in-out">
-          <h1 className={`font-bold tracking-wider leading-tight text-amber-300 drop-shadow-lg transition-all duration-500 ease-in-out ${isScrolled ? 'text-3xl' : 'text-5xl md:text-7xl'}`}>
-            The Mahabharata
+          <h1
+            className={`font-bold tracking-wider leading-tight text-amber-300 transition-all duration-500 ease-in-out ${isScrolled ? 'text-3xl' : 'text-5xl md:text-7xl'}`}
+            style={{
+              textShadow: '0 4px 32px #ff9800, 0 2px 8px #ffb347, 0 1px 0 #000, 0 0 32px #fff',
+              filter: 'drop-shadow(0 0 32px #ff9800) drop-shadow(0 0 16px #ffb347) drop-shadow(0 2px 8px #000)'
+            }}
+          >
+            The Mahabharat
           </h1>
-          <p className={`font-light text-slate-200 drop-shadow-md transition-all duration-300 ease-in-out overflow-hidden ${isScrolled ? 'opacity-0 max-h-0 mt-0' : 'opacity-100 max-h-screen mt-4 text-xl md:text-2xl'}`}>
-            Lineage, Conflict, and Philosophical Legacy
-          </p>
         </div>
       </header>
       {/* 
