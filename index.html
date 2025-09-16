@@ -11,11 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+      @font-face {
+        font-family: 'Storm Gust';
+        src: url('/fonts/Storm Gust.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
       body {
         font-family: 'Inter', sans-serif;
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Cinzel', serif;
+      }
+      .storm-gust {
+        font-family: 'Storm Gust', 'Cinzel', serif;
+      }
+      .storm-gust .use-default-font,
+      .storm-gust :is(span, div, p, h1, h2, h3, h4, h5, h6)[data-default-font] {
+        font-family: 'Inter', 'Cinzel', serif !important;
       }
       @keyframes slow-pan {
         0% { background-position: 0% 50%; }

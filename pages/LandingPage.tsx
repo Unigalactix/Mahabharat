@@ -22,16 +22,15 @@ const LandingPage: React.FC = () => {
   const skipAnimation = () => {
     setSkipped(true);
     setPhase('done');
-    navigate('/home');
+    navigate('/home', { replace: true });
   };
 
   useEffect(() => {
     if (skipped) return;
-    
     // Animate SVG path morphing through phases
     const t1 = setTimeout(() => setPhase('expand'), 800);
     const t2 = setTimeout(() => setPhase('show'), 1600);
-    const t3 = setTimeout(() => { setPhase('done'); navigate('/home'); }, 3400);
+    const t3 = setTimeout(() => { setPhase('done'); navigate('/home', { replace: true }); }, 3400);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [navigate, skipped]);
 

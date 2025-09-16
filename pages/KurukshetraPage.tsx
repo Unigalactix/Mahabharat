@@ -92,7 +92,7 @@ const battlefieldMindMap: MindMapNode = {
 
 const KurukshetraPage: React.FC = () => (
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h2 className="text-3xl font-bold text-amber-300 mb-8">Kurukshetra War: 18 Days of Battle</h2>
+  <h2 className="storm-gust text-3xl font-bold text-amber-300 mb-8">Kurukshetra War: 18 Days of Battle</h2>
     <p className="text-lg text-slate-300 mb-6">{kurukshetraSummary}</p>
     <div className="mb-10">
       <h3 className="text-2xl font-semibold text-amber-200 mb-4">Key Events by Day</h3>

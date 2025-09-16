@@ -73,7 +73,7 @@ const GaneshaChatbot: React.FC = () => {
         <div className="bg-gradient-to-br from-amber-100 via-amber-200 to-yellow-50 border-2 border-amber-400 rounded-2xl shadow-2xl p-4 w-full animate-fade-in flex flex-col" style={{ minHeight: 380, maxHeight: 480 }}>
           <div className="flex items-center mb-2">
             <span className="text-3xl mr-2">{BOT_AVATAR}</span>
-            <span className="font-bold text-amber-700 text-lg">{BOT_NAME}</span>
+            <span className="storm-gust font-bold text-amber-700 text-lg">{BOT_NAME}</span>
           </div>
           <div className="flex-1 h-56 overflow-y-auto bg-white/80 rounded-lg p-2 mb-2 border border-amber-200" style={{ fontFamily: 'serif', fontSize: 15, minHeight: 180 }}>
             {messages.map((msg, i) => (

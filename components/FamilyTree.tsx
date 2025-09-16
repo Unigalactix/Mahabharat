@@ -295,7 +295,7 @@ const FamilyTree: React.FC = () => {
                       <TreeNode name="Gandhari" border="border-red-600/50" icon={<FemaleIcon />} onClick={() => handleNodeClick('Gandhari')} tooltip="Wife of Dhritarashtra"/>
                       <VerticalLine />
                       <div ref={kauravasRef} className="p-3 border-2 border-red-600/40 bg-red-900/25 rounded-lg text-center shadow-red-900/20 shadow-inner">
-                        <h4 className="font-bold text-red-400">Duryodhana & 99 Brothers</h4>
+                        <h4 className="storm-gust font-bold text-red-400">Duryodhana & 99 Brothers</h4>
                         <p>The 100 Kauravas</p>
                       </div>
                   </div>
@@ -333,9 +333,9 @@ const FamilyTree: React.FC = () => {
                       <TreeNode name="Kunti" border="border-sky-500/60" icon={<FemaleIcon />} onClick={() => handleNodeClick('Kunti')} tooltip="Wife of Pandu, mother of Karna and 3 Pandavas"/>
                       <VerticalLine />
                       <div className="flex justify-center flex-wrap gap-2 mt-2">
-                          <TreeNode name="Yudhishthira" border="border-sky-500/60" icon={<CrownIcon />} onClick={() => handleNodeClick('Yudhishthira')} tooltip="Son of Kunti & Dharma"/>
-                          <TreeNode name="Bhima" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Bhima')} tooltip="Son of Kunti & Vayu"/>
-                          <TreeNode ref={arjunaRef} name="Arjuna" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Arjuna')} tooltip="Son of Kunti & Indra"/>
+                          <TreeNode name="Yudhishthira" className="storm-gust" border="border-sky-500/60" icon={<CrownIcon />} onClick={() => handleNodeClick('Yudhishthira')} tooltip="Son of Kunti & Dharma"/>
+                          <TreeNode name="Bhima" className="storm-gust" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Bhima')} tooltip="Son of Kunti & Vayu"/>
+                          <TreeNode ref={arjunaRef} name="Arjuna" className="storm-gust" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Arjuna')} tooltip="Son of Kunti & Indra"/>
                       </div>
                   </div>
 
@@ -345,8 +345,8 @@ const FamilyTree: React.FC = () => {
                       <TreeNode name="Madri" border="border-sky-500/60" icon={<FemaleIcon />} onClick={() => handleNodeClick('Madri')} tooltip="Wife of Pandu, mother of the twins"/>
                       <VerticalLine />
                       <div className="flex justify-center flex-wrap gap-2 mt-2">
-                          <TreeNode name="Nakula" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Nakula')} tooltip="Son of Madri & the Ashvins"/>
-                          <TreeNode name="Sahadeva" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Sahadeva')} tooltip="Son of Madri & the Ashvins"/>
+                          <TreeNode name="Nakula" className="storm-gust" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Nakula')} tooltip="Son of Madri & the Ashvins"/>
+                          <TreeNode name="Sahadeva" className="storm-gust" border="border-sky-500/60" icon={<SwordIcon />} onClick={() => handleNodeClick('Sahadeva')} tooltip="Son of Madri & the Ashvins"/>
                       </div>
                   </div>
               </div>
