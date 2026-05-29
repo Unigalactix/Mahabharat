@@ -329,9 +329,9 @@ Quality-of-life features that lift the whole codex:
 | 15 | Upākhyānas (inset tales) | ✅ done | `4a8ac8a` |
 | 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | `7df6dda` |
 | 17 | Astras, Conches & Chariots | ✅ done | `029586e` |
-| 18 | Śānti & Anuśāsana teachings | ✅ done | _this commit_ |
-| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaña | ⬜ next | — |
-| 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ | — |
+| 18 | Śānti & Anuśāsana teachings | ✅ done | `7cd87f8` |
+| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaña | ✅ done | _this commit_ |
+| 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ next | — |
 
 ## Session log
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
@@ -384,3 +384,8 @@ Quality-of-life features that lift the whole codex:
   - `data/teachings.ts` carries **9 bedside teachings** across all four branches — Rāja-dharma (three forms of *danda*, the ṣāḍguṇya sixfold policy, the king's three sets of eyes), Āpad-dharma (the doctrine itself + Viśvāmitra and the dog-thigh), Mokṣa-dharma (Janaka and the burning Mithilā, Piṅgalā the courtesan), Dāna-dharma (the three kinds of gift, Karṇa the dānavīra) — plus a `SAHASRANAMA` slice of **24 of the 1000 names of Viṣṇu** that Bhīṣma recites at the close.
   - `pages/TeachingsPage.tsx` is a *two-mode* page: a mode switcher toggles between **The Four Dharmas** (branch-filtered cards with the precept as headline blockquote and a modal that adds the exemplar footer) and **Viṣṇu-Sahasranāma** (a 3-column card grid where every row carries a numbered medallion, the Devanāgarī, the transliteration, and the gloss, with the *phala-śruti* quoted in a glass panel above). Each branch has its own accent colour driving its filter pill's glow.
   - Wired into `App.tsx` (`/teachings`) and `Navigation.tsx` (🪴 Teachings, placed right after Gītā since both are dharma teachings). Nav now 18 items.
+- **2026-05-29** — **Phase 19 — Antya parvas (Mausala, Mahāprasthāna, Svargārohaṇa, Sarpa-yajña)** shipped — the closing of the wheel.
+  - New `AntyaScene` interface (`arc`, `order`, `setting`, `narrative[]`, `reflection`) and an `ARC_META` record for the four closing arcs (Mausala ⏯ Mahāprasthāna ⏯ Svargārohaṇa ⏯ Sarpa-yajña) with per-arc accent colours (red dusk, blue snow, gold dawn, green forest) and their own framing tagline.
+  - `data/antya.ts` carries **12 scenes** — Mausala (3: omens, the reed-clubs at Prabhāsa, Kṛṣṇa under the pīpal); Mahāprasthāna (3: the abdication, the falling of the five with Yudhiṣṭhira's unsparing eulogies, the dog who is Dharma); Svargārohaṇa (3: the inverted heaven where Duryodhana sits on a throne, the road of hell where the cool breath of a brother brings relief, the last bath in the celestial Ganges); Sarpa-yajña (3: the bite of Takṣaka, the snake-sacrifice and Āstīka's intercession, Vaiśampāyana singing the M.Bh. for the first time — the epic's self-closing).
+  - `pages/AntyaPage.tsx` renders each arc as a **timeline section** — a coloured arc header (glyph + parva number + Devanāgarī + tagline), then a vertical timeline rail with numbered nodes glowing in the arc's accent, every scene clickable into a modal that shows the setting block as a glass quote, the cast as pills, the full narrative paragraphs, and a final “Vyāsa's reflection” footer in the arc colour. Filter pills let you scope to any single arc.
+  - Wired into `App.tsx` (`/antya`) and `Navigation.tsx` (🌅 Antya, **placed last** since it is the closing of the wheel). Nav now 19 items.

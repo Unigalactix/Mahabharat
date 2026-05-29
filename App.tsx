@@ -22,6 +22,7 @@ import { TeachingsPage } from './pages/TeachingsPage';
 import { HousesPage } from './pages/HousesPage';
 import { FamilyTreePage } from './pages/FamilyTreePage';
 import { KshetrasPage } from './pages/KshetrasPage';
+import { AntyaPage } from './pages/AntyaPage';
 
 const App: React.FC = () => (
   <div className="min-h-screen flex flex-col bg-ink text-parchment">
@@ -47,6 +48,7 @@ const App: React.FC = () => (
         <Route path="/houses"       element={<HousesPage />} />
         <Route path="/family-tree"  element={<FamilyTreePage />} />
         <Route path="/kshetras"     element={<KshetrasPage />} />
+        <Route path="/antya"        element={<AntyaPage />} />
         <Route path="*"             element={<Navigate to="/" replace />} />
       </Routes>
     </div>

@@ -194,3 +194,17 @@ export interface DivineName {
   sanskrit: string;                  // devanagari
   meaning: string;                   // short translation
 }
+
+export interface AntyaScene {
+  id: string;
+  arc: 'Mausala' | 'Mahaprasthana' | 'Svargarohana' | 'Sarpa-Yajna';
+  order: number;                     // 1..n within its arc, for ordering
+  title: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  setting: string;                   // place / season / mood
+  characters: string[];              // who is in the scene
+  narrative: string[];               // 2-4 paragraphs, **bold** for names
+  reflection: string;                // one-line meaning drawn out by Vyasa
+}

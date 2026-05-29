@@ -26,6 +26,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/houses',       label: 'Houses',       glyph: '👑' },
   { to: '/family-tree',  label: 'Lineage',      glyph: '🌳' },
   { to: '/kshetras',     label: 'Kshetras',     glyph: '🛕' },
+  { to: '/antya',        label: 'Antya',        glyph: '🌅' },
 ];
 
 export const Navigation: React.FC = () => {
