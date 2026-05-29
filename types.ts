@@ -142,3 +142,19 @@ export interface Upakhyana {
   summary: string[];        // 3 paragraphs of telling, **bold** for key names
   moral: string;            // the lesson the storyteller draws out
 }
+
+export interface Vow {
+  id: string;
+  kind: 'Pratijna' | 'Shapa';       // vow vs curse
+  title: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  utteredBy: string;                 // speaker of the vow / curse
+  utteredOn: string;                 // recipient or target
+  occasion: string;                  // short setting line
+  parva: string;                     // where the utterance happens
+  oath: string;                      // the exact sworn line (translated, **bold** allowed)
+  consequence: string[];             // 2-3 paragraphs of fulfilment
+  fulfilledOn: string;               // brief: where in the epic it cashes in
+}

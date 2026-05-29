@@ -10,6 +10,7 @@ import { ParvasPage } from './pages/ParvasPage';
 import { EpisodesPage } from './pages/EpisodesPage';
 import { BackstoriesPage } from './pages/BackstoriesPage';
 import { UpakhyanasPage } from './pages/UpakhyanasPage';
+import { VowsPage } from './pages/VowsPage';
 import { VanavasaPage } from './pages/VanavasaPage';
 import { AgnatavasaPage } from './pages/AgnatavasaPage';
 import { KrishnaPage } from './pages/KrishnaPage';
@@ -32,6 +33,7 @@ const App: React.FC = () => (
         <Route path="/episodes"     element={<EpisodesPage />} />
         <Route path="/backstories"  element={<BackstoriesPage />} />
         <Route path="/upakhyanas"   element={<UpakhyanasPage />} />
+        <Route path="/vows"         element={<VowsPage />} />
         <Route path="/vanavasa"     element={<VanavasaPage />} />
         <Route path="/agnatavasa"   element={<AgnatavasaPage />} />
         <Route path="/krishna"      element={<KrishnaPage />} />

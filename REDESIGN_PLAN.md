@@ -326,9 +326,9 @@ Quality-of-life features that lift the whole codex:
 | — | Post-launch fix: cards content + lineage expand/collapse | ✅ done | `556e6c2` |
 | — | Hardening: ErrorBoundary + GH-Pages 404.html SPA fallback | ✅ done | `6c478d8` |
 | 14 | Ādi Parva backstories | ✅ done | `6c478d8` |
-| 15 | Upākhyānas (inset tales) | ✅ done | _this commit_ |
-| 16 | Pratijñās & Śāpas (vows & curses) | ⬜ next | — |
-| 17 | Astras, Conches & Chariots | ⬜ | — |
+| 15 | Upākhyānas (inset tales) | ✅ done | `4a8ac8a` |
+| 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | _this commit_ |
+| 17 | Astras, Conches & Chariots | ⬜ next | — |
 | 18 | Śānti & Anuśāsana teachings | ⬜ | — |
 | 19 | Antya: Mausala · Mahāprasthāna · Svargārohaa | ⬜ | — |
 | 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ | — |
@@ -368,3 +368,9 @@ Quality-of-life features that lift the whole codex:
   - `data/upakhyanas.ts` with 8 self-contained inset epics: **Nala & Damayantī** (Bṛhadaśva → Yudhiṣṭhira), **Sāvitrī & Satyavān** (Mārkaṇḍeya), **Śakuntalā & Duṣyanta** — origin of *Bhārata* (Vyāsa → Janamejaya), **Yayāti** (Vyāsa), **Aṣṭāvakra** (Lomaśa), **Rāmopākhyāna** — the entire Rāmāyaṇa retold inside the Mahābhārata (Mārkaṇḍeya), **Mātsya & the Flood** (Mārkaṇḍeya), **Mudgala who refused heaven** (Vyāsa). Each tale has 3-paragraph telling with `**bold**` accent emphasis on key names and a "moral the sage drew" footer card.
   - `pages/UpakhyanasPage.tsx` with 6 theme pills, frame-card grid (`md:grid-cols-2`), and click-to-expand modal that surfaces the *toldBy / toldTo* pair in their own accent-tinted cards before the narrative.
   - Wired into `App.tsx` (`/upakhyanas`) and `Navigation.tsx` (📚 Upākhyānas, between Backstories and Vanavāsa). Nav now 15 items.
+- **2026-05-29** — **Blank-page bug, real fix** + **Phase 16 — Pratijñās & Śāpas**.
+  - **Diagnosis** (this time the live site really was blank): repo's GitHub Pages source was set to `build_type: legacy` + `source: main:/` — Pages was serving the raw, *unbuilt* root `index.html` (with `<script src="/index.tsx">`), which 404s on the live host. Our `actions/deploy-pages@v4` workflow ran successfully on every push but the artifact it produced was being ignored.
+  - **Fix:** `gh api -X PUT repos/Unigalactix/Mahabharat/pages -f build_type=workflow`. Then re-ran the most-recent deploy run. Verified live: `<script src="/Mahabharat/assets/index-BY5Nnh5h.js">`, 14 nav items rendered, 5481px page, "Upākhyānas" in markup. *This* is the genuine fix-forever for the blank page.
+  - **Phase 16 — Pratijñās & Śāpas** shipped: new `Vow` type (`kind: 'Pratijna' | 'Shapa'`, `utteredBy`, `utteredOn`, `occasion`, `oath`, `consequence[]`, `fulfilledOn`). `data/vows.ts` with 12 sworn words — **6 vows** (Bhīṣma's celibacy, Draupadī's unbound hair, Bhīma's twin vow, Arjuna's sundown vow on Jayadratha, Kṛṣṇa's weaponless vow, Sātyaki on Bhūriśravas) and **6 curses** (Kindama→Pāṇḍu, twin curses on Karṇa, Ambā→Bhīṣma reborn as Śikhaṇḍī, Gāndhārī→Kṛṣṇa, Kṛṣṇa→Aśvatthāman, Urvaśī→Arjuna→Bṛhannalā). Each entry quotes the oath in italic block, then walks paragraph-by-paragraph through how the universe collects on it.
+  - `pages/VowsPage.tsx` with 3 kind-pills (All / Pratijñās / Śāpas), card grid that frames the oath itself as the headline blockquote, and a modal that shows utterer / target / occasion in side-by-side accent cards before the big quote and the consequence narrative.
+  - Wired into `App.tsx` (`/vows`) and `Navigation.tsx` (⚖️ Vows & Curses, between Upākhyānas and Vanavāsa). Nav now 16 items.
