@@ -90,12 +90,23 @@ Design tokens (already in `index.html`):
   named fallen warriors.
 - ✅ Commit: `data: add kshetras, lineage, gita, kurukshetra days (Phase 6)`
 
-## ⬜ Phase 7 — Shared components (NEXT)
-**Files:** `components/Navigation.tsx`, `components/Hero.tsx`, `components/SectionTitle.tsx`, `components/CharacterCard.tsx`, `components/CharacterModal.tsx`, `components/ParvaTile.tsx`, `components/ParvaModal.tsx`, `components/Footer.tsx`
-- Use the design system in [`index.html`](index.html) (`.tc`, `.glass`,
-  `.parva-tile`, `.btn-gold`, etc.).
-- Pure presentational components — no router yet, no data fetching.
+## 🟢 Phase 7 — Shared components (DONE)
+**Files:** [`components/Navigation.tsx`](components/Navigation.tsx) · [`components/Hero.tsx`](components/Hero.tsx) · [`components/SectionTitle.tsx`](components/SectionTitle.tsx) · [`components/CharacterCard.tsx`](components/CharacterCard.tsx) · [`components/CharacterModal.tsx`](components/CharacterModal.tsx) · [`components/ParvaTile.tsx`](components/ParvaTile.tsx) · [`components/ParvaModal.tsx`](components/ParvaModal.tsx) · [`components/Footer.tsx`](components/Footer.tsx)
+- All 8 presentational components built on the [`index.html`](index.html)
+  design system.
+- `Navigation` uses react-router `NavLink` with 10 routes; `Hero` & modals
+  composable; `CharacterCard` is the flippable trading card.
+- Components compile clean but are tree-shaken until Phase 8 imports them.
 - ✅ Commit: `feat: shared devotional components (Phase 7)`
+
+## ⬜ Phase 8 — Pages I: Home / Characters / Parvas (NEXT)
+**Files:** `pages/HomePage.tsx`, `pages/CharactersPage.tsx`, `pages/ParvasPage.tsx`
+- HomePage: Hero, themes (Dharma/Karma/Bhakti/Moksha), stats strip, featured
+  characters & parvas, devotional CTA panels.
+- CharactersPage: filterable grid of all 30 characters with the
+  CharacterModal wired.
+- ParvasPage: vertical scroll of 18 ParvaTiles with the ParvaModal.
+- ✅ Commit: `feat(pages): Home, Characters, Parvas (Phase 8)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -201,8 +212,8 @@ Design tokens (already in `index.html`):
 | 4 | Data: Episodes | ✅ done | `7cc9f57` |
 | 5 | Data: Houses | ✅ done | `b047373` |
 | 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ✅ done | _this commit_ |
-| 7 | Shared components | 🟡 next | — |
-| 8 | Pages I — Home / Characters / Parvas | ⬜ | — |
+| 7 | Shared components | ✅ done | _this commit_ |
+| 8 | Pages I — Home / Characters / Parvas | 🟡 next | — |
 | 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ⬜ | — |
 | 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ⬜ | — |
 | 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ | — |
@@ -215,3 +226,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 4 (22 Episodes) completed. Also fixed deploy.yml: switched from `peaceiris/actions-gh-pages` (which needs gh-pages branch write) to the official `actions/deploy-pages@v4` using the GitHub Pages environment. Repo Settings → Pages source must be set to **GitHub Actions**.
 - **2026-05-29** — Phase 5 (23 noble Houses) completed. Pushed as `b047373`.
 - **2026-05-29** — Phase 6 (Kshetras 12 · Lineage tree · Gita 12 shlokas · 18 Kurukshetra days) completed. Data layer of the epic is now complete.
+- **2026-05-29** — Phase 7 (8 shared components: Navigation, Hero, SectionTitle, CharacterCard, CharacterModal, ParvaTile, ParvaModal, Footer) completed. Live site `https://unigalactix.github.io/Mahabharat/` confirmed serving the placeholder — deploy pipeline healthy.
