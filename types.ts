@@ -127,3 +127,18 @@ export interface Backstory {
   summary: string[];        // 2-3 paragraphs of telling
   whyItMatters: string;     // one-line forward-link into the main story
 }
+
+export interface Upakhyana {
+  id: string;
+  title: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  parva: string;            // where it is told inside the Mahabharata
+  toldBy: string;           // sage / character who tells it to the Pandavas
+  toldTo: string;           // who hears it
+  theme: 'Devotion' | 'Dharma' | 'Wisdom' | 'Cosmic' | 'Love';
+  characters: string[];
+  summary: string[];        // 3 paragraphs of telling, **bold** for key names
+  moral: string;            // the lesson the storyteller draws out
+}

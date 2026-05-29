@@ -13,6 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/parvas',       label: 'Parvas',       glyph: '📜' },
   { to: '/episodes',     label: 'Episodes',     glyph: '✨' },
   { to: '/backstories',  label: 'Backstories',  glyph: '📜' },
+  { to: '/upakhyanas',   label: 'Upākhyānas',   glyph: '📚' },
   { to: '/vanavasa',     label: 'Vanavāsa',     glyph: '🌲' },
   { to: '/agnatavasa',   label: 'Agnātavāsa',   glyph: '🎭' },
   { to: '/krishna',      label: 'Krishna',      glyph: '🪈' },

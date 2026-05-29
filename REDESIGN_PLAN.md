@@ -196,7 +196,7 @@ as **Unigalactix**.
 > May all be happy. May all be free from illness.
 > May all see auspiciousness. May none suffer.
 
-## ⬜ Phase 14 — Ādi Parva backstories
+## ✅ Phase 14 — Ādi Parva backstories
 **New file:** `data/backstories.ts` · **New page:** `pages/BackstoriesPage.tsx` · **Route:** `/backstories`
 The lineage stories that set the stage *before* the dice game. Each card has
 sanskrit title, glyph, accent, a 2-paragraph telling, and a "why it matters"
@@ -213,7 +213,7 @@ note that links forward into the main story.
 - **Draupadī-svayaṃvara** — the fish-eye target, the brāhmaṇa-disguised Arjuna, the unintended five-husband vow.
 - ✅ Commit: `feat(pages): Adi Parva backstories (Phase 14)`
 
-## ⬜ Phase 15 — Upākhyānas (the inset tales)
+## ✅ Phase 15 — Upākhyānas (the inset tales)
 **New file:** `data/upakhyanas.ts` · **New page:** `pages/UpakhyanasPage.tsx` · **Route:** `/upakhyanas`
 The great epic carries other epics inside it. The forest sages tell these to
 the Pāṇḍavas to console them; we tell them as their own codex cards.
@@ -324,10 +324,10 @@ Quality-of-life features that lift the whole codex:
 | 12 | App.tsx wiring + build polish | ✅ done | `637b794` |
 | 13 | Deploy verification | ✅ done | `9ee0741` |
 | — | Post-launch fix: cards content + lineage expand/collapse | ✅ done | `556e6c2` |
-| — | Hardening: ErrorBoundary + GH-Pages 404.html SPA fallback | ✅ done | _this commit_ |
-| 14 | Ādi Parva backstories | ✅ done | _this commit_ |
-| 15 | Upākhyānas (inset tales) | ⬜ next | — |
-| 16 | Pratijñās & Śāpas (vows & curses) | ⬜ | — |
+| — | Hardening: ErrorBoundary + GH-Pages 404.html SPA fallback | ✅ done | `6c478d8` |
+| 14 | Ādi Parva backstories | ✅ done | `6c478d8` |
+| 15 | Upākhyānas (inset tales) | ✅ done | _this commit_ |
+| 16 | Pratijñās & Śāpas (vows & curses) | ⬜ next | — |
 | 17 | Astras, Conches & Chariots | ⬜ | — |
 | 18 | Śānti & Anuśāsana teachings | ⬜ | — |
 | 19 | Antya: Mausala · Mahāprasthāna · Svargārohaa | ⬜ | — |
@@ -363,3 +363,8 @@ Quality-of-life features that lift the whole codex:
     - Added `public/404.html` SPA fallback. Even non-hash deep-links like `/Mahabharat/characters` now bounce to `/Mahabharat/#/characters` instead of GH-Pages' default 404.
   - **Phase 14 — Ādi Parva backstories** shipped: new `Backstory` type, `data/backstories.ts` with 10 lineage tales (Śāntanu-Gaṅgā, Bhīṣma-pratijñā, Satyāvatī-Parāśara, Ambā, Pāṇḍu's curse, Karṇa-janma, Droṇa-Drupada, Lākṣāgṛha, forest asuras, Draupadī-svayaṃvara), `pages/BackstoriesPage.tsx` with era filter (All / Pre-Bhārata / Pre-Kuru / Pre-Pāṇḍava) + click-to-expand modal (supports `**bold**` accent emphasis + "Why it matters" footer card). Wired into `App.tsx` (`/backstories`) and `Navigation.tsx` (📜 Backstories, between Episodes and Vanavāsa). Nav now 14 items.
   - Build: 73 modules, 429.69 kB JS / 135.69 kB gzipped, 1.46s.
+- **2026-05-29** — **Phase 15 — Upākhyānas (inset tales)** shipped.
+  - New `Upakhyana` type with theme axis (Devotion / Dharma / Wisdom / Cosmic / Love) and `toldBy` / `toldTo` framing fields so the page can show *who* tells *whom* — preserving the Mahābhārata's frame-tale form.
+  - `data/upakhyanas.ts` with 8 self-contained inset epics: **Nala & Damayantī** (Bṛhadaśva → Yudhiṣṭhira), **Sāvitrī & Satyavān** (Mārkaṇḍeya), **Śakuntalā & Duṣyanta** — origin of *Bhārata* (Vyāsa → Janamejaya), **Yayāti** (Vyāsa), **Aṣṭāvakra** (Lomaśa), **Rāmopākhyāna** — the entire Rāmāyaṇa retold inside the Mahābhārata (Mārkaṇḍeya), **Mātsya & the Flood** (Mārkaṇḍeya), **Mudgala who refused heaven** (Vyāsa). Each tale has 3-paragraph telling with `**bold**` accent emphasis on key names and a "moral the sage drew" footer card.
+  - `pages/UpakhyanasPage.tsx` with 6 theme pills, frame-card grid (`md:grid-cols-2`), and click-to-expand modal that surfaces the *toldBy / toldTo* pair in their own accent-tinted cards before the narrative.
+  - Wired into `App.tsx` (`/upakhyanas`) and `Navigation.tsx` (📚 Upākhyānas, between Backstories and Vanavāsa). Nav now 15 items.
