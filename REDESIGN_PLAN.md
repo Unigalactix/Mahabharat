@@ -124,16 +124,30 @@ Design tokens (already in `index.html`):
   Goharaṇa, the Revelation, Uttarā–Abhimanyu) + Virāṭa Parva keyEvents.
 - ✅ Commit: `feat(pages): Episodes, Vanavasa, Agnatavasa (Phase 9)`
 
-## ⬜ Phase 10 — Pages III: Krishna / Vishwarupa / Kurukshetra / Gita (NEXT)
-**Files:** `pages/KrishnaPage.tsx`, `pages/VishwarupaPage.tsx`, `pages/KurukshetraPage.tsx`, `pages/GitaPage.tsx`
-- KrishnaPage: devotional profile of the Yādava — Mathurā birth, Bṛndāvana
-  līlā, Dvārakā, Pāñcajanya, Sudarśana, Pārtha-sārathi, Uddhava-gītā.
-- VishwarupaPage: graphic stage using `.vishwarupa-stage`, `.vishwarupa-rays`,
-  `.vishwarupa-aum`, `.vishwarupa-halo` from index.html — Chapter 11 of the
-  Gītā rendered as a darśana.
-- KurukshetraPage: 18-day timeline driven by `KURUKSHETRA_DAYS`.
-- GitaPage: all 12 shlokas using `.shloka-card`, grouped by theme.
+## 🟢 Phase 10 — Pages III: Krishna / Vishwarupa / Kurukshetra / Gita (DONE)
+**Files:** [`pages/KrishnaPage.tsx`](pages/KrishnaPage.tsx) · [`pages/VishwarupaPage.tsx`](pages/VishwarupaPage.tsx) · [`pages/KurukshetraPage.tsx`](pages/KurukshetraPage.tsx) · [`pages/GitaPage.tsx`](pages/GitaPage.tsx)
+- KrishnaPage: Hero, identity card from CHARACTERS.krishna, eight nāmas, the
+  avatāra-purpose (Gītā 4.7–8) as four glyph-cards, ten Krishna
+  episodes from EPISODES, CTAs to Vishwarupa & Gitā.
+- VishwarupaPage: full `.vishwarupa-stage` darshan with rotating rays, halo,
+  and aum; four glimpses of the limitless; Gītā 11.32 (kālo'smi) and 11.55
+  shloka cards.
+- KurukshetraPage: Hero + pill day-picker for all 18 days + active-day panel
+  with commander/highlight/fallen + full chronicle list. Commander accents:
+  Bhishma gold, Drona saffron, Karna crimson, Shalya peacock, Ashwatthama
+  lotus.
+- GitaPage: opening invocation + seven thematic filters (All / Arjuna /
+  Ātman / Karma / Bhakti / Vishwarupa / Śaranāgati) over all 12 shlokas
+  rendered with `.shloka-card`.
 - ✅ Commit: `feat(pages): Krishna, Vishwarupa, Kurukshetra, Gita (Phase 10)`
+
+## ⬜ Phase 11 — Pages IV: Houses / Family Tree / Kshetras (NEXT)
+**Files:** `pages/HousesPage.tsx`, `pages/FamilyTreePage.tsx`, `pages/KshetrasPage.tsx`
+- HousesPage: filterable by side (Pandava / Kaurava / Neutral / Allied /
+  Divine) over the 23 noble houses.
+- FamilyTreePage: recursive render of CHANDRAVANSHA using ft-* classes.
+- KshetrasPage: 12 sacred sites with map-style cards.
+- ✅ Commit: `feat(pages): Houses, Family Tree, Kshetras (Phase 11)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -241,9 +255,9 @@ Design tokens (already in `index.html`):
 | 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ✅ done | `676fc8f` |
 | 7 | Shared components | ✅ done | `d5b3ecd` |
 | 8 | Pages I — Home / Characters / Parvas | ✅ done | `9c31e84` |
-| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ✅ done | _this commit_ |
-| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | 🟡 next | — |
-| 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ | — |
+| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ✅ done | `a354930` |
+| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ✅ done | _this commit_ |
+| 11 | Pages IV — Houses / Family Tree / Kshetras | 🟡 next | — |
 | 12 | App.tsx wiring + build polish | ⬜ | — |
 | 13 | Deploy | ⬜ | — |
 
@@ -256,3 +270,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 7 (8 shared components: Navigation, Hero, SectionTitle, CharacterCard, CharacterModal, ParvaTile, ParvaModal, Footer) completed. Live site `https://unigalactix.github.io/Mahabharat/` confirmed serving the placeholder — deploy pipeline healthy.
 - **2026-05-29** — Phase 8 (HomePage, CharactersPage, ParvasPage) completed. Pages compile clean but are still tree-shaken until App.tsx wires the router in Phase 12.
 - **2026-05-29** — Phase 9 (EpisodesPage with 6 phase-filters, VanavasaPage with 9 curated forest highlights + Vana Parva keyEvents, AgnatavasaPage with 6 disguises + 4 closing events + Virata Parva keyEvents) completed. All pages compile clean.
+- **2026-05-29** — Phase 10 (KrishnaPage with 8 names + avatāra purpose + 10 episodes, VishwarupaPage with the `.vishwarupa-stage` darshan + Gītā 11.32 & 11.55 cards, KurukshetraPage with all 18 days driven by KURUKSHETRA_DAYS + commander-pill picker, GitaPage with 7 thematic filters over all 12 shlokas) completed. Build clean.
