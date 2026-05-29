@@ -110,14 +110,30 @@ Design tokens (already in `index.html`):
 - ParvasPage: 3-column responsive grid of all 18 ParvaTiles with ParvaModal.
 - ✅ Commit: `feat(pages): Home, Characters, Parvas (Phase 8)`
 
-## ⬜ Phase 9 — Pages II: Episodes / Vanavasa / Agnatavasa (NEXT)
-**Files:** `pages/EpisodesPage.tsx`, `pages/VanavasaPage.tsx`, `pages/AgnatavasaPage.tsx`
-- EpisodesPage: timeline of all 22 episodes from Krishna janma to mahaprasthana.
-- VanavasaPage: dedicated page for the 12-year forest exile — Yaksha prashna,
-  Saugandhika, Pashupata, sage-tales of Nala & Savitri.
-- AgnatavasaPage: the year of hidden disguise in Virata — each Pandava’s
-  alias, Kichaka, cattle-raid reveal.
+## 🟢 Phase 9 — Pages II: Episodes / Vanavasa / Agnatavasa (DONE)
+**Files:** [`pages/EpisodesPage.tsx`](pages/EpisodesPage.tsx) · [`pages/VanavasaPage.tsx`](pages/VanavasaPage.tsx) · [`pages/AgnatavasaPage.tsx`](pages/AgnatavasaPage.tsx)
+- EpisodesPage: vertical timeline of all 22 episodes from Krishna-janma to
+  mahāprasthāna, with six phase-filters (All / Krishna’s Līlā / Pre-War /
+  Exile / The 18 Days / Post-War) and accent-coloured glyph markers.
+- VanavasaPage: hero panel from EPISODES + nine curated forest stories
+  (Akṣaya Pātra, Pāśupata-astra, Indraloka, Saugandhika & Hanumān,
+  Ghoṣa-Yātrā, Jayadratha, Karṇa’s kavaca, Yakṣa-Praśna, Purāṇa-kathās) +
+  Vana Parva keyEvents.
+- AgnatavasaPage: hero + six disguises (Kaṅka, Vallabha, Bṛhannalā,
+  Granthika, Tantipāla, Sairandhrī) + four closing events (Kīcaka-vadha,
+  Goharaṇa, the Revelation, Uttarā–Abhimanyu) + Virāṭa Parva keyEvents.
 - ✅ Commit: `feat(pages): Episodes, Vanavasa, Agnatavasa (Phase 9)`
+
+## ⬜ Phase 10 — Pages III: Krishna / Vishwarupa / Kurukshetra / Gita (NEXT)
+**Files:** `pages/KrishnaPage.tsx`, `pages/VishwarupaPage.tsx`, `pages/KurukshetraPage.tsx`, `pages/GitaPage.tsx`
+- KrishnaPage: devotional profile of the Yādava — Mathurā birth, Bṛndāvana
+  līlā, Dvārakā, Pāñcajanya, Sudarśana, Pārtha-sārathi, Uddhava-gītā.
+- VishwarupaPage: graphic stage using `.vishwarupa-stage`, `.vishwarupa-rays`,
+  `.vishwarupa-aum`, `.vishwarupa-halo` from index.html — Chapter 11 of the
+  Gītā rendered as a darśana.
+- KurukshetraPage: 18-day timeline driven by `KURUKSHETRA_DAYS`.
+- GitaPage: all 12 shlokas using `.shloka-card`, grouped by theme.
+- ✅ Commit: `feat(pages): Krishna, Vishwarupa, Kurukshetra, Gita (Phase 10)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -224,9 +240,9 @@ Design tokens (already in `index.html`):
 | 5 | Data: Houses | ✅ done | `b047373` |
 | 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ✅ done | `676fc8f` |
 | 7 | Shared components | ✅ done | `d5b3ecd` |
-| 8 | Pages I — Home / Characters / Parvas | ✅ done | _this commit_ |
-| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | 🟡 next | — |
-| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ⬜ | — |
+| 8 | Pages I — Home / Characters / Parvas | ✅ done | `9c31e84` |
+| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ✅ done | _this commit_ |
+| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | 🟡 next | — |
 | 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ | — |
 | 12 | App.tsx wiring + build polish | ⬜ | — |
 | 13 | Deploy | ⬜ | — |
@@ -239,3 +255,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 6 (Kshetras 12 · Lineage tree · Gita 12 shlokas · 18 Kurukshetra days) completed. Data layer of the epic is now complete.
 - **2026-05-29** — Phase 7 (8 shared components: Navigation, Hero, SectionTitle, CharacterCard, CharacterModal, ParvaTile, ParvaModal, Footer) completed. Live site `https://unigalactix.github.io/Mahabharat/` confirmed serving the placeholder — deploy pipeline healthy.
 - **2026-05-29** — Phase 8 (HomePage, CharactersPage, ParvasPage) completed. Pages compile clean but are still tree-shaken until App.tsx wires the router in Phase 12.
+- **2026-05-29** — Phase 9 (EpisodesPage with 6 phase-filters, VanavasaPage with 9 curated forest highlights + Vana Parva keyEvents, AgnatavasaPage with 6 disguises + 4 closing events + Virata Parva keyEvents) completed. All pages compile clean.
