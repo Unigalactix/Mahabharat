@@ -38,18 +38,9 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character, onOpen 
         style={accentStyle}
       >
         {/* FRONT */}
-        <div className={`tc-face tc-frame rarity-${character.rarity}`}>
+        <div className="tc-face">
           <div className="tc-inner">
             <div className="tc-holo" aria-hidden />
-            <div className="tc-corner tl" aria-hidden />
-            <div className="tc-corner br" aria-hidden />
-
-            <div
-              className="tc-rarity-badge"
-              style={{ color: character.accent, borderColor: character.accent }}
-            >
-              {RARITY_LABEL[character.rarity]}
-            </div>
 
             <div className="tc-portrait">
               <span className="tc-glyph" style={{ color: character.accent }}>
@@ -80,10 +71,21 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character, onOpen 
               ))}
             </div>
           </div>
+          {/* Overlays — outside .tc-inner so they aren't clipped */}
+          <div className="tc-corner tl" aria-hidden />
+          <div className="tc-corner br" aria-hidden />
+          <div
+            className="tc-rarity-badge"
+            style={{ color: character.accent, borderColor: character.accent }}
+          >
+            {RARITY_LABEL[character.rarity]}
+          </div>
+          {/* Gold frame — its own element so mask-composite only clips the frame, not the content */}
+          <div className={`tc-frame rarity-${character.rarity}`} aria-hidden />
         </div>
 
         {/* BACK */}
-        <div className={`tc-face tc-back tc-frame rarity-${character.rarity}`}>
+        <div className="tc-face tc-back">
           <div className="tc-back-inner">
             <div className="tc-back-title">{character.name}</div>
             <p className="font-sanskrit text-center text-goldlight/80 text-sm">
@@ -124,6 +126,8 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character, onOpen 
               </button>
             )}
           </div>
+          {/* Gold frame overlay for back face too */}
+          <div className={`tc-frame rarity-${character.rarity}`} aria-hidden />
         </div>
       </div>
     </div>

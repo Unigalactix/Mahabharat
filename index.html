@@ -315,6 +315,34 @@
       .ft-name { font-family: 'Cinzel', serif; font-weight: 700; color: #f5d061; letter-spacing: .08em; }
       .ft-spouse { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: #e6d9b2; opacity: .8; margin-top: 4px; }
       .ft-connector { width: 1px; height: 28px; background: linear-gradient(180deg, rgba(212,175,55,.6), transparent); margin: -10px auto; }
+      .ft-toggle {
+        position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+        display: inline-flex; align-items: center; gap: 6px;
+        height: 24px; padding: 0 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #f8e29a, #d4af37);
+        color: #1a0f00;
+        font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px; line-height: 1;
+        border: 1px solid rgba(0,0,0,.4);
+        box-shadow: 0 4px 12px -4px rgba(212,175,55,.7), inset 0 1px 0 rgba(255,255,255,.4);
+        cursor: pointer;
+        z-index: 2;
+        transition: transform .15s, box-shadow .15s;
+      }
+      .ft-toggle:hover { transform: translateX(-50%) translateY(-1px); box-shadow: 0 6px 16px -4px rgba(245,208,97,.8); }
+      .ft-toggle-count {
+        font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+        letter-spacing: .08em; opacity: .85;
+      }
+
+      /* Active state for pill controls (used on Lineage page) */
+      .pill { cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+      .pill:hover { background: rgba(212,175,55,.16); border-color: rgba(245,208,97,.7); }
+      .pill-active {
+        background: linear-gradient(135deg,#f8e29a,#d4af37);
+        color: #1a0f00 !important;
+        border-color: #d4af37;
+      }
 
       /* ============ HERO ============ */
       .hero-title {
