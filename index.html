@@ -1,70 +1,493 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mahabharata: The Epic Infographic</title>
+    <meta name="theme-color" content="#08060f" />
+    <meta name="description" content="Mahabharata Codex — A premium, devotional infographic to Vyasa's eternal epic. Holographic character cards, the 18 Parvas, Vanavasa, Agnatavasa, Kurukshetra, Krishna's Vishwarupa, the Bhagavad Gita, and the noble houses of Bharatavarsha." />
+    <title>Mahabharata Codex · Vyasa's Eternal Epic</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['"Cinzel Decorative"', 'serif'],
+              cinzel: ['Cinzel', 'serif'],
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              sanskrit: ['"Tiro Devanagari Sanskrit"', 'serif'],
+            },
+            colors: {
+              ink: '#08060F',
+              night: '#0B0712',
+              royal: '#15101F',
+              parchment: '#F5E8C9',
+              gold: '#D4AF37',
+              goldlight: '#F5D061',
+              saffron: '#FF8C42',
+              crimson: '#B91C1C',
+              sapphire: '#3B82F6',
+              peacock: '#0E7C7B',
+              lotus: '#E879F9',
+              jade: '#10B981',
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      @font-face {
-        font-family: 'Storm Gust';
-        src: url('/fonts/Storm Gust.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+      :root {
+        --ink: #08060f;
+        --night: #0b0712;
+        --royal: #15101f;
+        --gold: #d4af37;
+        --goldlight: #f5d061;
+        --saffron: #ff8c42;
+        --crimson: #b91c1c;
+        --sapphire: #3b82f6;
+        --peacock: #0e7c7b;
+        --lotus: #e879f9;
+        --parchment: #f5e8c9;
       }
+      * { -webkit-tap-highlight-color: transparent; }
+      html { scroll-behavior: smooth; }
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', system-ui, sans-serif;
+        background:
+          radial-gradient(1200px 800px at 20% -10%, rgba(212, 175, 55, 0.15), transparent 60%),
+          radial-gradient(900px 700px at 100% 10%, rgba(255, 140, 66, 0.10), transparent 65%),
+          radial-gradient(1100px 900px at 50% 110%, rgba(14, 124, 123, 0.12), transparent 70%),
+          linear-gradient(180deg, #07050c 0%, #0b0712 60%, #06040a 100%);
+        color: #ece2c8;
+        min-height: 100vh;
+        overflow-x: hidden;
       }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Cinzel', serif;
+      body::before {
+        content: '';
+        pointer-events: none;
+        position: fixed; inset: 0; z-index: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+        opacity: 0.18;
+        mix-blend-mode: overlay;
       }
-      .storm-gust {
-        font-family: 'Storm Gust', 'Cinzel', serif;
+      .stars {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background-image:
+          radial-gradient(1px 1px at 12% 18%, rgba(245,208,97,0.9), transparent 50%),
+          radial-gradient(1px 1px at 80% 32%, rgba(255,255,255,0.6), transparent 50%),
+          radial-gradient(1.5px 1.5px at 55% 70%, rgba(212,175,55,0.8), transparent 50%),
+          radial-gradient(1px 1px at 25% 85%, rgba(255,140,66,0.7), transparent 50%),
+          radial-gradient(1px 1px at 92% 80%, rgba(255,255,255,0.6), transparent 50%),
+          radial-gradient(2px 2px at 65% 12%, rgba(232,121,249,0.6), transparent 50%);
+        background-repeat: no-repeat;
+        opacity: .85;
       }
-      .storm-gust .use-default-font,
-      .storm-gust :is(span, div, p, h1, h2, h3, h4, h5, h6)[data-default-font] {
-        font-family: 'Inter', 'Cinzel', serif !important;
+
+      h1, h2, h3, h4, .font-display { font-family: 'Cinzel Decorative', 'Cinzel', serif; letter-spacing: 0.02em; }
+      .font-cinzel { font-family: 'Cinzel', serif; }
+      .font-serif-q { font-family: 'Cormorant Garamond', serif; }
+      .font-sanskrit { font-family: 'Tiro Devanagari Sanskrit', serif; }
+
+      .text-gradient-gold {
+        background: linear-gradient(135deg, #f8e29a 0%, #d4af37 40%, #b8860b 60%, #f5d061 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 30px rgba(212,175,55,0.15);
       }
-      @keyframes slow-pan {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
+      .text-gradient-saffron {
+        background: linear-gradient(135deg, #ffd089 0%, #ff8c42 50%, #c1440e 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
       }
-      .animated-bg {
-        background-size: 150% auto;
-        animation: slow-pan 60s ease-in-out infinite alternate;
+      .text-gradient-peacock {
+        background: linear-gradient(135deg, #7be0d2 0%, #0e7c7b 60%, #1e3a8a 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
       }
-      @keyframes fade-in {
-        from { opacity: 0; }
-        to { opacity: 1; }
+      .text-gradient-crimson {
+        background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 50%, #450a0a 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
       }
-      @keyframes slide-up {
-        from { transform: translateY(20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+
+      .hr-ornate {
+        display: flex; align-items: center; justify-content: center; gap: 1rem;
+        color: var(--gold);
       }
-      .animate-fade-in {
-        animation: fade-in 0.3s ease-out forwards;
+      .hr-ornate::before, .hr-ornate::after {
+        content: ''; flex: 1; max-width: 8rem; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
       }
-      .animate-slide-up {
-        animation: slide-up 0.4s ease-out forwards;
+
+      /* ============ TRADING CARD ============ */
+      .card-stage { perspective: 1400px; }
+      .tc {
+        position: relative; width: 100%; aspect-ratio: 3 / 4.4;
+        transform-style: preserve-3d;
+        transition: transform .6s cubic-bezier(.2,.85,.25,1);
+        cursor: pointer;
+      }
+      .tc.is-flipped { transform: rotateY(180deg); }
+      .tc-face {
+        position: absolute; inset: 0; border-radius: 22px;
+        backface-visibility: hidden; overflow: hidden;
+        box-shadow: 0 24px 50px -18px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.06) inset;
+      }
+      .tc-back { transform: rotateY(180deg); }
+      .tc-frame {
+        position: absolute; inset: 0; border-radius: 22px; padding: 4px;
+        background: linear-gradient(135deg, #f8e29a 0%, #d4af37 25%, #b8860b 50%, #f5d061 75%, #d4af37 100%);
+        z-index: 4; pointer-events: none;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.7) inset, 0 0 24px rgba(245,208,97,.35);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+      }
+      .tc-frame::before {
+        content: ''; position: absolute; inset: 6px; border-radius: 18px;
+        border: 2px solid rgba(255,240,200,0.55); pointer-events: none;
+      }
+      .tc-inner {
+        position: absolute; inset: 10px; border-radius: 14px; overflow: hidden;
+        background:
+          radial-gradient(120% 80% at 50% 0%, var(--accent, #d4af37) 0%, transparent 55%),
+          linear-gradient(180deg, #261a3d 0%, #15101f 60%, #0d0a18 100%);
+        z-index: 1;
+      }
+      .tc-holo {
+        position: absolute; inset: 10px; border-radius: 14px;
+        background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.10) 35%, rgba(245,208,97,0.18) 50%, rgba(255,255,255,0.10) 65%, transparent 100%);
+        mix-blend-mode: overlay; opacity: .55; pointer-events: none; z-index: 3;
+      }
+      .tc-rarity-badge {
+        position: absolute; top: 22px; right: 22px;
+        font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.18em;
+        padding: 4px 10px; border-radius: 999px; text-transform: uppercase; z-index: 4;
+        backdrop-filter: blur(6px);
+      }
+      .rarity-mythic { background: linear-gradient(135deg, #f8e29a, #b8860b); color:#1a0f00; box-shadow:0 0 14px rgba(245,208,97,.7); }
+      .rarity-legendary { background: linear-gradient(135deg, #fcd5b3, #ff8c42); color:#3a1300; box-shadow:0 0 14px rgba(255,140,66,.6); }
+      .rarity-epic { background: linear-gradient(135deg, #d4baff, #8b5cf6); color:#1d0040; box-shadow:0 0 14px rgba(139,92,246,.55); }
+      .rarity-rare { background: linear-gradient(135deg, #b8e6ff, #3b82f6); color:#001a3a; box-shadow:0 0 12px rgba(59,130,246,.55); }
+
+      .tc-portrait {
+        position: relative; height: 60%; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+        border-bottom: 2px solid rgba(245,208,97,.45);
+      }
+      .tc-portrait::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(13,10,24,0.92) 100%);
+      }
+      .tc-glyph {
+        font-size: 140px;
+        filter:
+          drop-shadow(0 0 28px var(--accent, #d4af37))
+          drop-shadow(0 0 10px var(--accent, #d4af37))
+          drop-shadow(0 2px 6px rgba(0,0,0,0.7));
+      }
+      .tc-name {
+        position: absolute; left: 22px; right: 22px; top: 58%;
+        font-family: 'Cinzel Decorative', serif; font-weight: 900;
+        font-size: clamp(20px, 2.4vw, 26px); line-height: 1;
+        text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0 24px var(--accent, #d4af37);
+        z-index: 5; color: #fdf4d6;
+      }
+      .tc-epithet {
+        position: absolute; left: 22px; right: 22px; top: calc(58% + 30px);
+        font-family: 'Cormorant Garamond', serif; font-style: italic;
+        font-size: 13px; color: #e6d9b2; opacity: .9; z-index: 5;
+      }
+      .tc-stats {
+        position: absolute; left: 22px; right: 22px; bottom: 22px;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; z-index: 5;
+      }
+      .tc-stat { display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color:#e6d9b2; }
+      .tc-stat-bar { position: relative; flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+      .tc-stat-fill { position: absolute; left:0; top:0; bottom:0; background: linear-gradient(90deg, var(--accent, #d4af37), #f5d061); border-radius: 2px; box-shadow: 0 0 8px var(--accent, #d4af37); }
+      .tc-stat-val { font-variant-numeric: tabular-nums; min-width: 18px; text-align: right; }
+
+      .tc-corner { position: absolute; width: 26px; height: 26px; border: 1.5px solid rgba(245,208,97,.7); z-index: 4; }
+      .tc-corner.tl { top: 22px; left: 22px; border-right:none; border-bottom:none; }
+      .tc-corner.br { bottom: 22px; right: 22px; border-left:none; border-top:none; }
+
+      .tc-back-inner {
+        position: absolute; inset: 14px; border-radius: 14px; overflow: hidden;
+        padding: 22px; display: flex; flex-direction: column; gap: 10px;
+        background: radial-gradient(400px 220px at 50% 0%, rgba(212,175,55,0.2), transparent 60%), linear-gradient(180deg, #1a1326 0%, #0d0a18 100%);
+      }
+      .tc-back-title { font-family: 'Cinzel Decorative', serif; font-size: 20px; color: var(--gold); text-align: center; margin-bottom: 4px; }
+      .tc-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: #ecd9a6; text-align: center; line-height: 1.45; padding: 10px 6px; border-top: 1px solid rgba(212,175,55,0.25); border-bottom: 1px solid rgba(212,175,55,0.25); }
+      .tc-fact-row { font-size: 11px; display: flex; justify-content: space-between; gap: 8px; color:#c9bd9b; }
+      .tc-fact-row strong { color: var(--goldlight); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 10px; }
+
+      /* ============ BUTTONS ============ */
+      .btn-gold {
+        display: inline-flex; align-items: center; gap: .5rem;
+        padding: 12px 22px; border-radius: 999px;
+        background: linear-gradient(135deg, #f8e29a, #d4af37 50%, #b8860b);
+        color: #1a0f00; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px;
+        box-shadow: 0 12px 30px -10px rgba(212,175,55,.6), inset 0 1px 0 rgba(255,255,255,.5);
+        transition: transform .2s, box-shadow .2s;
+      }
+      .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -12px rgba(212,175,55,.8), inset 0 1px 0 rgba(255,255,255,.5); }
+      .btn-ghost {
+        display: inline-flex; align-items: center; gap: .5rem;
+        padding: 12px 22px; border-radius: 999px;
+        border: 1px solid rgba(245,208,97,.45);
+        color: #f5d061; font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 12px;
+        backdrop-filter: blur(8px);
+        transition: background .2s, transform .2s, border-color .2s;
+      }
+      .btn-ghost:hover { background: rgba(245,208,97,.08); transform: translateY(-2px); border-color: rgba(245,208,97,.8); }
+
+      .pill {
+        display:inline-flex; padding: 4px 12px; border-radius: 999px;
+        font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+        border: 1px solid rgba(212,175,55,.4); color: #f5d061; background: rgba(212,175,55,.06);
+      }
+
+      /* ============ GLASS PANEL ============ */
+      .glass {
+        background: linear-gradient(180deg, rgba(28,20,40,0.78) 0%, rgba(13,10,24,0.78) 100%);
+        border: 1px solid rgba(212,175,55,0.2);
+        border-radius: 24px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.04);
+      }
+      .glass-hover { transition: border-color .25s, box-shadow .25s, transform .25s; }
+      .glass-hover:hover {
+        border-color: rgba(245,208,97,.55);
+        box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), 0 0 30px rgba(212,175,55,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+        transform: translateY(-3px);
+      }
+
+      /* ============ PARVA TILES ============ */
+      .parva-tile { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+      .parva-tile:hover { transform: translateY(-6px); }
+      .parva-num {
+        font-family: 'Cinzel Decorative', serif; font-weight: 900;
+        background: linear-gradient(180deg, rgba(245,208,97,0.85), rgba(212,175,55,0.0));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        font-size: 78px; line-height: 1;
+      }
+
+      /* ============ NAV ============ */
+      .topnav {
+        position: sticky; top: 16px;
+        z-index: 50; margin: 16px auto 0;
+        display: flex; gap: 4px; align-items: center;
+        padding: 6px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(20,14,30,.85), rgba(10,7,20,.85));
+        border: 1px solid rgba(212,175,55,.3);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 30px -10px rgba(0,0,0,.8);
+        max-width: min(96vw, 1200px); overflow-x: auto;
+      }
+      .topnav a {
+        font-family: 'Cinzel', serif; font-weight: 600; font-size: 11px; letter-spacing: .14em;
+        text-transform: uppercase; color: #d9c897;
+        padding: 8px 14px; border-radius: 999px;
+        transition: color .2s, background .2s; white-space: nowrap;
+      }
+      .topnav a:hover { color: #fdf4d6; background: rgba(245,208,97,.1); }
+      .topnav a.active { color: #1a0f00; background: linear-gradient(135deg,#f8e29a,#d4af37); }
+
+      /* ============ FAMILY TREE ============ */
+      .ft-tree { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 12px; min-width: 720px; }
+      .ft-row { display: flex; gap: 18px; justify-content: center; flex-wrap: nowrap; position: relative; }
+      .ft-node {
+        position: relative;
+        padding: 14px 18px; min-width: 160px; text-align: center;
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(28,20,40,.9), rgba(13,10,24,.9));
+        border: 1px solid rgba(212,175,55,.35);
+        box-shadow: 0 10px 24px -12px rgba(0,0,0,.7);
+        transition: transform .2s, border-color .2s, box-shadow .2s;
+      }
+      .ft-node:hover { transform: translateY(-4px); border-color: rgba(245,208,97,.75); box-shadow: 0 12px 30px -8px rgba(212,175,55,.35); }
+      .ft-name { font-family: 'Cinzel', serif; font-weight: 700; color: #f5d061; letter-spacing: .08em; }
+      .ft-spouse { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: #e6d9b2; opacity: .8; margin-top: 4px; }
+      .ft-connector { width: 1px; height: 28px; background: linear-gradient(180deg, rgba(212,175,55,.6), transparent); margin: -10px auto; }
+
+      /* ============ HERO ============ */
+      .hero-title {
+        font-family: 'Cinzel Decorative', serif;
+        font-weight: 900;
+        font-size: clamp(48px, 11vw, 144px);
+        line-height: .95; letter-spacing: -0.01em;
+      }
+      .hero-orbit {
+        position: absolute; left: 50%; top: 50%;
+        width: min(1100px, 130vw); aspect-ratio: 1 / 1;
+        transform: translate(-50%,-50%);
+        border-radius: 50%;
+        border: 1px solid rgba(212,175,55,.18);
+        pointer-events: none;
+      }
+      .hero-orbit::before, .hero-orbit::after {
+        content:''; position:absolute; inset:8%; border-radius:50%;
+        border: 1px dashed rgba(212,175,55,.12);
+      }
+      .hero-orbit::after { inset: 18%; border-style: dotted; border-color: rgba(232,121,249,.15); }
+      .chakra {
+        position: absolute; width: 320px; height: 320px;
+        left: 50%; top: 50%; transform: translate(-50%,-50%);
+        opacity: .22; pointer-events: none;
+      }
+
+      /* ============ MODAL ============ */
+      .modal-backdrop {
+        position: fixed; inset: 0; z-index: 60;
+        background: radial-gradient(800px 600px at 50% 30%, rgba(212,175,55,0.18), transparent 60%), rgba(5,3,10,0.82);
+        backdrop-filter: blur(10px);
+        display: flex; align-items: center; justify-content: center;
+        animation: fadeIn .25s ease-out;
+        padding: 24px;
+      }
+      .modal-card {
+        position: relative;
+        width: 100%; max-width: 880px; max-height: 88vh; overflow: hidden;
+        background: linear-gradient(180deg, #1a1326 0%, #0d0a18 100%);
+        border-radius: 22px;
+        border: 1px solid rgba(212,175,55,0.4);
+        box-shadow: 0 40px 80px -20px rgba(0,0,0,0.9), 0 0 80px rgba(212,175,55,0.15);
+        animation: rise .45s cubic-bezier(.165,.84,.44,1);
+        display: flex; flex-direction: column;
+      }
+      .modal-scroll { overflow-y: auto; }
+      .modal-scroll::-webkit-scrollbar { width: 8px; }
+      .modal-scroll::-webkit-scrollbar-thumb { background: rgba(212,175,55,.35); border-radius: 4px; }
+      @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+      @keyframes rise { from { transform: translateY(40px) scale(.96); opacity: 0 } to { transform: none; opacity: 1 } }
+
+      /* ============ KURUKSHETRA ============ */
+      .battle-grid {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 24px;
+        align-items: stretch;
+      }
+      .battle-side {
+        border-radius: 18px; padding: 22px;
+        background: linear-gradient(180deg, rgba(28,20,40,.85), rgba(13,10,24,.85));
+        border: 1px solid rgba(212,175,55,.25);
+      }
+      .battle-vs {
+        font-family: 'Cinzel Decorative', serif; font-weight: 900;
+        font-size: clamp(40px, 6vw, 80px);
+        background: linear-gradient(135deg,#f8e29a,#ff8c42,#b91c1c);
+        -webkit-background-clip:text; background-clip:text; color:transparent;
+        display:flex; align-items:center; justify-content:center;
+        text-shadow: 0 0 40px rgba(212,175,55,.4);
+      }
+      @media (max-width: 900px) {
+        .battle-grid { grid-template-columns: 1fr; }
+        .battle-vs { padding: 12px 0; }
+      }
+
+      /* ============ VISHWARUPA ============ */
+      .vishwarupa-stage {
+        position: relative; border-radius: 22px; overflow: hidden;
+        background:
+          radial-gradient(60% 50% at 50% 50%, rgba(245,208,97,0.45), transparent 70%),
+          radial-gradient(80% 60% at 50% 50%, rgba(255,140,66,0.25), transparent 70%),
+          radial-gradient(100% 80% at 50% 50%, rgba(14,124,123,0.2), transparent 75%),
+          linear-gradient(180deg, #1a1326 0%, #07050c 100%);
+        border: 1px solid rgba(212,175,55,.35);
+        min-height: 520px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .vishwarupa-rays {
+        position: absolute; inset: -10%;
+        background:
+          conic-gradient(from 0deg,
+            rgba(245,208,97,0.18) 0deg, transparent 12deg,
+            rgba(255,140,66,0.16) 30deg, transparent 42deg,
+            rgba(232,121,249,0.10) 60deg, transparent 72deg,
+            rgba(14,124,123,0.16) 90deg, transparent 102deg,
+            rgba(245,208,97,0.18) 120deg, transparent 132deg,
+            rgba(255,140,66,0.16) 150deg, transparent 162deg,
+            rgba(232,121,249,0.10) 180deg, transparent 192deg,
+            rgba(14,124,123,0.16) 210deg, transparent 222deg,
+            rgba(245,208,97,0.18) 240deg, transparent 252deg,
+            rgba(255,140,66,0.16) 270deg, transparent 282deg,
+            rgba(232,121,249,0.10) 300deg, transparent 312deg,
+            rgba(14,124,123,0.16) 330deg, transparent 342deg);
+        animation: spin 80s linear infinite;
+        mask: radial-gradient(closest-side, black 30%, transparent 80%);
+        -webkit-mask: radial-gradient(closest-side, black 30%, transparent 80%);
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .vishwarupa-aum {
+        position: relative; z-index: 3;
+        font-family: 'Tiro Devanagari Sanskrit', serif;
+        font-size: clamp(140px, 24vw, 320px);
+        color: #fdf4d6;
+        text-shadow:
+          0 0 30px rgba(245,208,97,0.9),
+          0 0 80px rgba(255,140,66,0.7),
+          0 0 160px rgba(232,121,249,0.5),
+          0 0 240px rgba(14,124,123,0.4);
+      }
+      .vishwarupa-halo {
+        position: absolute; inset: 0; z-index: 2;
+        background: radial-gradient(closest-side, transparent 30%, rgba(8,6,15,0.4) 75%);
+      }
+
+      /* ============ SHLOKA / GITA ============ */
+      .shloka-card {
+        position: relative;
+        background:
+          radial-gradient(400px 220px at 50% 0%, rgba(212,175,55,0.18), transparent 60%),
+          linear-gradient(180deg, #1a1326 0%, #0d0a18 100%);
+        border: 1px solid rgba(212,175,55,.3);
+        border-radius: 18px;
+        padding: 28px;
+      }
+      .shloka-num {
+        position: absolute; top: 14px; right: 18px;
+        font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .2em;
+        color: rgba(245,208,97,.75); text-transform: uppercase;
+      }
+
+      /* ============ KSHETRA / HOUSE CARD ============ */
+      .codex-card {
+        position: relative; border-radius: 20px; overflow: hidden;
+        background: linear-gradient(180deg, rgba(28,20,40,.9), rgba(13,10,24,.9));
+        border: 1px solid rgba(212,175,55,.28);
+        padding: 22px; display: flex; flex-direction: column; gap: 12px;
+        transition: transform .25s, border-color .25s, box-shadow .25s;
+      }
+      .codex-card:hover { transform: translateY(-4px); border-color: rgba(245,208,97,.7); box-shadow: 0 22px 40px -16px rgba(0,0,0,.8), 0 0 24px rgba(212,175,55,.15); }
+      .codex-glyph {
+        width: 56px; height: 56px; border-radius: 14px;
+        display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(circle at 30% 25%, var(--accent, #d4af37) 0%, transparent 70%), linear-gradient(135deg, rgba(212,175,55,.18), rgba(255,140,66,.08));
+        border: 1px solid rgba(245,208,97,.4);
+        font-size: 28px;
+        filter: drop-shadow(0 0 14px var(--accent, #d4af37));
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { scrollbar-width: none; }
+
+      @media (max-width: 640px) {
+        .tc-glyph { font-size: 100px; }
+        .topnav a { font-size: 10px; padding: 6px 10px; }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1"
-  }
-}
-</script>
-</head>
-  <body class="bg-black text-slate-200">
-    <div id="root"></div>
+  </head>
+  <body class="bg-night text-parchment">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-gold focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Skip to main content</a>
+    <div class="stars" aria-hidden="true"></div>
+    <div id="root" class="relative z-10"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

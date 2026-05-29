@@ -1,47 +1,26 @@
 import React from 'react';
-import Header from './components/Header';
-import MenuBar from './components/MenuBar';
-import GaneshaChatbot from './components/GaneshaChatbot';
-import Navigation from './components/Navigation';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LandingPage from './pages/LandingPage';
-import FamilyTreePage from './pages/FamilyTreePage';
-import ParvasPage from './pages/ParvasPage';
-import KeyMomentsPage from './pages/KeyMomentsPage';
-import ParticipantsPage from './pages/ParticipantsPage';
-import KurukshetraPage from './pages/KurukshetraPage';
+import { CHARACTERS } from './data/characters';
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <div className="bg-black min-h-screen text-slate-300 antialiased">
-        <Header />
-        <Navigation />
-        <MenuBar />
-        <main>
-          <Routes>
-            {/* Redirect root to /home */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/landing" element={<LandingPage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/family-tree" element={<FamilyTreePage />} />
-            <Route path="/parvas" element={<ParvasPage />} />
-            <Route path="/kurukshetra" element={<KurukshetraPage />} />
-            <Route path="/key-moments" element={<KeyMomentsPage />} />
-            <Route path="/participants" element={<ParticipantsPage />} />
-            {/* Catch-all route: redirect to /home */}
-            <Route path="*" element={<HomePage />} />
-          </Routes>
-        </main>
-        <footer className="text-center py-8 border-t border-slate-800 text-slate-500">
-          <p>An Interactive Exploration of the Mahabharata</p>
-        </footer>
-        <GaneshaChatbot />
+// Temporary scaffold during the phased Mahabharata Codex redesign.
+// Replaced in Phase 12 by the full router and pages.
+const App: React.FC = () => (
+  <div className="min-h-screen flex items-center justify-center px-6 py-24">
+    <div className="glass max-w-2xl w-full p-10 text-center">
+      <div className="font-cinzel text-[11px] tracking-[.4em] uppercase text-goldlight/80 mb-4">
+        Mahabharata Codex · under construction
       </div>
-    </Router>
-  );
-};
+      <h1 className="font-display text-4xl md:text-6xl text-gradient-gold leading-tight">
+        जय
+      </h1>
+      <p className="mt-6 font-serif-q italic text-[#ece2c8]">
+        The Codex is being rebuilt phase by phase.
+      </p>
+      <p className="mt-4 text-xs tracking-widest uppercase text-[#c9bd9b]">
+        {CHARACTERS.length} characters · {' '}foundation ready
+      </p>
+      <div className="hr-ornate mt-8"><span>✦</span></div>
+    </div>
+  </div>
+);
 
 export default App;
-

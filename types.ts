@@ -1,8 +1,116 @@
+import React from 'react';
+
+export type Rarity = 'mythic' | 'legendary' | 'epic' | 'rare';
+export type Alignment = 'Dharma' | 'Adharma' | 'Neutral';
+
+export interface CharacterStat {
+  label: string;
+  value: number; // 0 - 100
+}
+
+export interface KeyMoment {
+  title: string;
+  parva: string;
+  description: string;
+}
 
 export interface Character {
+  id: string;
   name: string;
-  clan: string;
-  role: string;
+  sanskrit: string;
+  epithet: string;
+  rarity: Rarity;
+  alignment: Alignment;
+  affiliation: string;
+  origin: string;
+  era: string;
+  weapon: string;
+  glyph: string;
+  accent: string;
+  stats: CharacterStat[];
+  abilities: string[];
+  quote: string;
+  lore: string;
+  keyMoments: KeyMoment[];
+}
+
+export interface Parva {
+  number: number;
+  name: string;
+  sanskrit: string;
+  meaning: string;
+  summary: string;
+  keyEvents: string[];
+  accent: string;
+}
+
+export interface House {
+  id: string;
+  name: string;
+  sanskrit: string;
+  capital: string;
+  region: string;
+  side: 'Pandava' | 'Kaurava' | 'Neutral' | 'Allied-Pandava' | 'Allied-Kaurava' | 'Divine';
+  patriarch: string;
+  notableMembers: string[];
+  banner: string;     // emoji/symbol
+  accent: string;     // hex
   description: string;
-  image: string;
+  legacy: string;
+}
+
+export interface Episode {
+  id: string;
+  title: string;
+  sanskrit?: string;
+  era: string;
+  glyph: string;
+  accent: string;
+  summary: string;
+  significance: string;
+}
+
+export interface Shloka {
+  chapter: number;
+  verse: string;
+  sanskrit: string;
+  transliteration: string;
+  translation: string;
+  meaning: string;
+}
+
+export interface Kshetra {
+  id: string;
+  name: string;
+  location: string;
+  glyph: string;
+  accent: string;
+  story: string;
+  significance: string;
+}
+
+export interface FamilyTreeNode {
+  name: string;
+  spouse?: string;
+  note?: string;
+  children?: FamilyTreeNode[];
+}
+
+export interface ThemeBlock {
+  title: string;
+  description: string;
+  glyph: string;
+  accent: string;
+}
+
+export interface StatBlock {
+  value: string;
+  label: string;
+}
+
+export interface KurukshetraDay {
+  day: number;
+  commander: string;
+  highlight: string;
+  fallen: string[];
 }
