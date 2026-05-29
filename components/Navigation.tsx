@@ -1,80 +1,115 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-interface NavItem {
-  to: string;
-  label: string;
-  glyph: string;
-}
+type NavItem = { to: string; label: string; glyph: string };
+type Divider = { divider: true };
+type RailEntry = NavItem | Divider;
 
-const NAV_ITEMS: NavItem[] = [
-  { to: '/',             label: 'Home',         glyph: '🕉️' },
-  { to: '/characters',   label: 'Characters',   glyph: '🏹' },
-  { to: '/parvas',       label: 'Parvas',       glyph: '📜' },
-  { to: '/episodes',     label: 'Episodes',     glyph: '✨' },
-  { to: '/backstories',  label: 'Backstories',  glyph: '📜' },
-  { to: '/upakhyanas',   label: 'Upākhyānas',   glyph: '📚' },
-  { to: '/vows',         label: 'Vows & Curses', glyph: '⚖️' },
-  { to: '/relics',       label: 'Relics',       glyph: '🏹' },
-  { to: '/vanavasa',     label: 'Vanavāsa',     glyph: '🌲' },
-  { to: '/agnatavasa',   label: 'Agnātavāsa',   glyph: '🎭' },
-  { to: '/krishna',      label: 'Krishna',      glyph: '🪈' },
-  { to: '/vishwarupa',   label: 'Vishwarūpa',   glyph: '🌌' },
-  { to: '/kurukshetra',  label: 'Kurukshetra',  glyph: '⚔️' },
-  { to: '/gita',         label: 'Gītā',         glyph: '📖' },
-  { to: '/teachings',    label: 'Teachings',    glyph: '🪴' },
-  { to: '/houses',       label: 'Houses',       glyph: '👑' },
-  { to: '/family-tree',  label: 'Lineage',      glyph: '🌳' },
-  { to: '/kshetras',     label: 'Kshetras',     glyph: '🛕' },
-  { to: '/antya',        label: 'Antya',        glyph: '🌅' },
+const isDivider = (e: RailEntry): e is Divider => (e as Divider).divider === true;
+
+/**
+ * Navigation rail — grouped thematically with subtle gold dividers.
+ * The order matches the user's mental model of the codex; dividers mark
+ * conceptual breaks (Story → Tales → Exile → Divine → War → World → End).
+ */
+const RAIL: RailEntry[] = [
+  { to: '/', label: 'Home', glyph: '🕉️' },
+  { to: '/characters', label: 'Characters', glyph: '👤' },
+  { to: '/parvas', label: 'Parvas', glyph: '📜' },
+  { to: '/episodes', label: 'Episodes', glyph: '🎭' },
+  { divider: true },
+  { to: '/backstories', label: 'Backstories', glyph: '🌿' },
+  { to: '/upakhyanas', label: 'Upākhyānas', glyph: '📖' },
+  { to: '/vows', label: 'Vows', glyph: '⚔️' },
+  { to: '/relics', label: 'Relics', glyph: '🏹' },
+  { divider: true },
+  { to: '/vanavasa', label: 'Vanavāsa', glyph: '🌳' },
+  { to: '/agnatavasa', label: 'Agnātavāsa', glyph: '🎭' },
+  { divider: true },
+  { to: '/krishna', label: 'Krishna', glyph: '🪷' },
+  { to: '/vishwarupa', label: 'Vishwarūpa', glyph: '🌌' },
+  { to: '/kurukshetra', label: 'Kurukshetra', glyph: '🔥' },
+  { to: '/gita', label: 'Gītā', glyph: '🕉' },
+  { to: '/teachings', label: 'Teachings', glyph: '📿' },
+  { divider: true },
+  { to: '/houses', label: 'Houses', glyph: '🏰' },
+  { to: '/family-tree', label: 'Lineage', glyph: '🌳' },
+  { to: '/kshetras', label: 'Kshetras', glyph: '🛕' },
+  { divider: true },
+  { to: '/antya', label: 'Antya', glyph: '🌅' },
 ];
+
+const openSearch = () => window.dispatchEvent(new CustomEvent('mbh:open-search'));
+const openGlossary = () => window.dispatchEvent(new CustomEvent('mbh:open-glossary'));
 
 export const Navigation: React.FC = () => {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-ink/70 border-b border-gold/15">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4 flex-wrap">
-        <NavLink to="/" className="flex items-center gap-2 group shrink-0">
-          <span className="text-3xl group-hover:scale-110 transition-transform">🕉️</span>
-          <div className="flex flex-col leading-none">
-            <span className="font-display text-gold tracking-wider text-base sm:text-lg">
+    <header className="nav-shell">
+      {/* Tier 1 — Brand row + actions */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-3 pb-2 flex items-center gap-3">
+        <NavLink to="/" className="nav-brand flex items-center gap-3 group" aria-label="Mahabharata — Home">
+          <span className="nav-brand-mark" aria-hidden="true">🕉️</span>
+          <span className="flex flex-col leading-none">
+            <span
+              className="text-gold tracking-[0.18em] uppercase text-[15px] sm:text-[17px]"
+              style={{ fontFamily: "'Cinzel Decorative', serif", fontWeight: 700 }}
+            >
               Mahabharata
             </span>
-            <span className="font-sanskrit text-goldlight/70 text-xs">
+            <span
+              className="text-goldlight/70 text-[10px] sm:text-[11px] mt-1"
+              style={{ fontFamily: "'Tiro Devanagari Sanskrit', serif", letterSpacing: '0.04em' }}
+            >
               महाभारत · कोडेक्स
             </span>
-          </div>
+          </span>
         </NavLink>
 
-        <nav className="flex flex-wrap gap-2 ml-auto">
-          {NAV_ITEMS.slice(1).map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `pill text-xs sm:text-[13px] ${
-                  isActive
-                    ? 'bg-gold/20 border-gold/70 text-goldlight shadow-[0_0_16px_rgba(212,175,55,.35)]'
-                    : 'text-parchment/80 hover:text-goldlight'
-                }`
-              }
-            >
-              <span className="mr-1.5">{item.glyph}</span>
-              {item.label}
-            </NavLink>
-          ))}
+        <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
-            onClick={() => window.dispatchEvent(new Event('mbh:open-search'))}
-            title="Search the codex (⌘K or /)"
-            aria-label="Open search palette"
-            className="pill text-xs sm:text-[13px] text-parchment/80 hover:text-goldlight border-gold/30 flex items-center gap-1.5"
+            onClick={openGlossary}
+            className="nav-action hidden md:inline-flex"
+            aria-label="Open Sanskrit glossary"
+            title="Sanskrit glossary (Shift+G)"
           >
-            <span aria-hidden>🔍</span>
-            <span className="hidden sm:inline">Search</span>
-            <kbd className="hidden md:inline-block text-[9px] border border-parchment/25 rounded px-1 ml-1">
-              ⌘K
-            </kbd>
+            <span aria-hidden="true">सं</span>
+            <span className="hidden lg:inline">Glossary</span>
+            <kbd>⇧G</kbd>
           </button>
+          <button
+            type="button"
+            onClick={openSearch}
+            className="nav-action"
+            aria-label="Open search"
+            title="Search (⌘K)"
+          >
+            <span aria-hidden="true">🔍</span>
+            <span className="hidden sm:inline">Search</span>
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
+      </div>
+
+      {/* Tier 2 — Horizontal rail with edge-fade masks */}
+      <div className="max-w-7xl mx-auto nav-rail-wrap">
+        <nav className="nav-rail" aria-label="Primary">
+          {RAIL.map((entry, i) => {
+            if (isDivider(entry)) {
+              return <span key={`d-${i}`} className="nav-divider" aria-hidden="true" />;
+            }
+            return (
+              <NavLink
+                key={entry.to}
+                to={entry.to}
+                end={entry.to === '/'}
+                className={({ isActive }) => `nav-link${isActive ? ' is-active' : ''}`}
+              >
+                <span className="nav-glyph" aria-hidden="true">{entry.glyph}</span>
+                <span>{entry.label}</span>
+              </NavLink>
+            );
+          })}
         </nav>
       </div>
     </header>

@@ -24,7 +24,12 @@ export const GlossaryDrawer: React.FC = () => {
       }
     };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const onOpenEvt = () => setOpen(true);
+    window.addEventListener('mbh:open-glossary', onOpenEvt as EventListener);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('mbh:open-glossary', onOpenEvt as EventListener);
+    };
   }, [open]);
 
   const filtered = useMemo(() => {
