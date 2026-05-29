@@ -38,23 +38,18 @@ Design tokens (already in `index.html`):
 
 ---
 
-## 🟡 Phase 2 — Data: Characters (NEXT)
-**File:** `data/characters.ts`
-- ~30 holographic character entries with `glyph`, `accent`, `rarity`, `stats`,
-  `abilities`, `quote`, `lore`, `keyMoments`.
-- Coverage:
-  - **Pandavas**: Yudhishthira, Bhima, Arjuna, Nakula, Sahadeva, Draupadi,
-    Abhimanyu, Ghatotkacha.
-  - **Kauravas & allies**: Duryodhana, Dushasana, Karna, Shakuni, Jayadratha,
-    Ashwatthama.
-  - **Elders**: Bhishma, Drona, Kripacharya, Vidura, Dhritarashtra, Gandhari,
-    Kunti, Pandu.
-  - **Divine**: Krishna (mythic), Balarama, Vyasa, Subhadra.
-  - **Panchala/Matsya**: Drupada, Dhrishtadyumna, Shikhandi, Virata, Uttara,
-    Satyaki.
-- ✅ Commit: `data: add character codex (Phase 2)`
+## ✅ Phase 2 — Data: Characters (DONE)
+**File:** [`data/characters.ts`](data/characters.ts) — 30 holographic entries.
+- Krishna (mythic), Arjuna, Yudhishthira, Bhima, Nakula, Sahadeva, Draupadi,
+  Abhimanyu, Ghatotkacha.
+- Duryodhana, Karna, Dushasana, Shakuni, Jayadratha, Ashwatthama.
+- Bhishma, Drona, Kripa, Vidura, Dhritarashtra, Gandhari, Kunti, Pandu.
+- Balarama, Subhadra, Vyasa.
+- Satyaki, Dhrishtadyumna, Shikhandi, Drupada, Virata.
+- Placeholder `App.tsx` added so the build stays green.
+- ✅ Commit `0618a29` — *feat(codex): Phase 1-2 — devotional foundation + character codex data*
 
-## ⬜ Phase 3 — Data: Parvas
+## 🟡 Phase 3 — Data: Parvas (NEXT)
 **File:** `data/parvas.ts`
 - All **18 Parvas** with `number`, `sanskrit`, `meaning`, `summary`,
   `keyEvents[]`, `accent`.
@@ -155,19 +150,22 @@ Design tokens (already in `index.html`):
 5. No phase mixes data + components + pages.
 
 ## Status board
-| Phase | Title | Status |
-|------:|-------|--------|
-| 0 | Discovery & Cleanup | ✅ done |
-| 1 | Foundation (index.html, types.ts) | ✅ done |
-| 2 | Data: Characters | 🟡 next |
-| 3 | Data: Parvas | ⬜ |
-| 4 | Data: Episodes | ⬜ |
-| 5 | Data: Houses | ⬜ |
-| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ⬜ |
-| 7 | Shared components | ⬜ |
-| 8 | Pages I — Home / Characters / Parvas | ⬜ |
-| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ⬜ |
-| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ⬜ |
-| 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ |
-| 12 | App.tsx wiring + build polish | ⬜ |
-| 13 | Deploy | ⬜ |
+| Phase | Title | Status | Commit |
+|------:|-------|--------|--------|
+| 0 | Discovery & Cleanup | ✅ done | — |
+| 1 | Foundation (index.html, types.ts) | ✅ done | `0618a29` |
+| 2 | Data: Characters | ✅ done | `0618a29` |
+| 3 | Data: Parvas | 🟡 next | — |
+| 4 | Data: Episodes | ⬜ | — |
+| 5 | Data: Houses | ⬜ | — |
+| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ⬜ | — |
+| 7 | Shared components | ⬜ | — |
+| 8 | Pages I — Home / Characters / Parvas | ⬜ | — |
+| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ⬜ | — |
+| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ⬜ | — |
+| 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ | — |
+| 12 | App.tsx wiring + build polish | ⬜ | — |
+| 13 | Deploy | ⬜ | — |
+
+## Session log
+- **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
