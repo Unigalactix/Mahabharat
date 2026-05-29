@@ -327,9 +327,9 @@ Quality-of-life features that lift the whole codex:
 | — | Hardening: ErrorBoundary + GH-Pages 404.html SPA fallback | ✅ done | `6c478d8` |
 | 14 | Ādi Parva backstories | ✅ done | `6c478d8` |
 | 15 | Upākhyānas (inset tales) | ✅ done | `4a8ac8a` |
-| 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | _this commit_ |
-| 17 | Astras, Conches & Chariots | ⬜ next | — |
-| 18 | Śānti & Anuśāsana teachings | ⬜ | — |
+| 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | `7df6dda` |
+| 17 | Astras, Conches & Chariots | ✅ done | _this commit_ |
+| 18 | Śānti & Anuśāsana teachings | ⬜ next | — |
 | 19 | Antya: Mausala · Mahāprasthāna · Svargārohaa | ⬜ | — |
 | 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ | — |
 
@@ -374,3 +374,8 @@ Quality-of-life features that lift the whole codex:
   - **Phase 16 — Pratijñās & Śāpas** shipped: new `Vow` type (`kind: 'Pratijna' | 'Shapa'`, `utteredBy`, `utteredOn`, `occasion`, `oath`, `consequence[]`, `fulfilledOn`). `data/vows.ts` with 12 sworn words — **6 vows** (Bhīṣma's celibacy, Draupadī's unbound hair, Bhīma's twin vow, Arjuna's sundown vow on Jayadratha, Kṛṣṇa's weaponless vow, Sātyaki on Bhūriśravas) and **6 curses** (Kindama→Pāṇḍu, twin curses on Karṇa, Ambā→Bhīṣma reborn as Śikhaṇḍī, Gāndhārī→Kṛṣṇa, Kṛṣṇa→Aśvatthāman, Urvaśī→Arjuna→Bṛhannalā). Each entry quotes the oath in italic block, then walks paragraph-by-paragraph through how the universe collects on it.
   - `pages/VowsPage.tsx` with 3 kind-pills (All / Pratijñās / Śāpas), card grid that frames the oath itself as the headline blockquote, and a modal that shows utterer / target / occasion in side-by-side accent cards before the big quote and the consequence narrative.
   - Wired into `App.tsx` (`/vows`) and `Navigation.tsx` (⚖️ Vows & Curses, between Upākhyānas and Vanavāsa). Nav now 16 items.
+- **2026-05-29** — **Phase 17 — Astras, Conches & Chariots** shipped.
+  - New `Relic` type unifying three classes (`kind: 'Astra' | 'Conch' | 'Chariot'`) with `wielder`, `origin`, `invokedBy`, `power` (the one-line capability), `description[]`, `usedAt`.
+  - `data/relics.ts` with 13 entries: **6 Astras** (Brahmāstra, Pāśupatāstra — held in reserve all war, Nārāyaṇāstra — only countered by total surrender, Gāṇḍīva, Sudarśana-cakra, Vāsava-Śakti — one throw, kills Ghaṭotkaca), **4 Conches** (Pāñcajanya, Devadatta, Pauṇḍra, Anantavijaya), **3 Chariots** (Arjuna's Kapidhvaja with Hanumān on the banner, Karṇa's with Śalya secretly demoralising him, Bhīṣma's tāla-dhvaja silver chariot).
+  - `pages/RelicsPage.tsx` with 4 kind-pills, 3-column card grid (`lg:grid-cols-3`) since relics are compact, card uses the one-line *power* as the italic headline, modal opens with a 3-column quick-spec grid (Wielder / Origin / Invoked by) followed by the power blockquote, paragraph lore, and a "Used at" footer card.
+  - Wired into `App.tsx` (`/relics`) and `Navigation.tsx` (🏹 Relics, between Vows & Curses and Vanavāsa). Nav now 17 items.

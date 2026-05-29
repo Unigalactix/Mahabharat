@@ -158,3 +158,18 @@ export interface Vow {
   consequence: string[];             // 2-3 paragraphs of fulfilment
   fulfilledOn: string;               // brief: where in the epic it cashes in
 }
+
+export interface Relic {
+  id: string;
+  kind: 'Astra' | 'Conch' | 'Chariot';
+  name: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  wielder: string;                   // primary wielder
+  origin: string;                    // god / smith / source
+  invokedBy: string;                 // mantra / breath / wish
+  power: string;                     // one-line capability
+  description: string[];             // 2-3 paragraphs of lore
+  usedAt: string;                    // canonical use moment in the epic
+}
