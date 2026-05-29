@@ -49,11 +49,22 @@ Design tokens (already in `index.html`):
 - Placeholder `App.tsx` added so the build stays green.
 - ✅ Commit `0618a29` — *feat(codex): Phase 1-2 — devotional foundation + character codex data*
 
-## 🟡 Phase 3 — Data: Parvas (NEXT)
-**File:** `data/parvas.ts`
-- All **18 Parvas** with `number`, `sanskrit`, `meaning`, `summary`,
-  `keyEvents[]`, `accent`.
+## 🟡 Phase 3 — Data: Parvas (DONE)
+**File:** [`data/parvas.ts`](data/parvas.ts)
+- All **18 Maha-Parvas** — Adi, Sabha, Vana, Virata, Udyoga, Bhishma, Drona,
+  Karna, Shalya, Sauptika, Stri, Shanti, Anushasana, Ashvamedhika,
+  Ashramavasika, Mausala, Mahaprasthanika, Svargarohana.
+- Each with `number`, `sanskrit`, `meaning`, `summary`, `keyEvents[]`, `accent`.
 - ✅ Commit: `data: add 18 parvas (Phase 3)`
+
+## ⬜ Phase 4 — Data: Episodes (NEXT)
+**File:** `data/episodes.ts`
+- 18–24 episodes spanning: Krishna's birth & lila, Govardhan, Sudarshan, the
+  Rajasuya, the dice game, Draupadi's vastraharan, the 12-year **Vanavasa**, the
+  1-year **Agnatavasa** in Matsya, the failed peace embassy, Vishwarupa, Bhishma
+  Pratigya, Abhimanyu & the Chakravyuha, Karna vs Arjuna, the night of
+  Ashwatthama, Parikshit's rescue, Yudhishthira's ascent.
+- ✅ Commit: `data: add Mahabharata episodes (Phase 4)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -155,8 +166,8 @@ Design tokens (already in `index.html`):
 | 0 | Discovery & Cleanup | ✅ done | — |
 | 1 | Foundation (index.html, types.ts) | ✅ done | `0618a29` |
 | 2 | Data: Characters | ✅ done | `0618a29` |
-| 3 | Data: Parvas | 🟡 next | — |
-| 4 | Data: Episodes | ⬜ | — |
+| 3 | Data: Parvas | ✅ done | _this commit_ |
+| 4 | Data: Episodes | 🟡 next | — |
 | 5 | Data: Houses | ⬜ | — |
 | 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ⬜ | — |
 | 7 | Shared components | ⬜ | — |
@@ -169,3 +180,4 @@ Design tokens (already in `index.html`):
 
 ## Session log
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
+- **2026-05-29** — Phase 3 (18 Parvas) completed.
