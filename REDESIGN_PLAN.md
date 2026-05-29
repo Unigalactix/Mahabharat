@@ -328,9 +328,9 @@ Quality-of-life features that lift the whole codex:
 | 14 | Ādi Parva backstories | ✅ done | `6c478d8` |
 | 15 | Upākhyānas (inset tales) | ✅ done | `4a8ac8a` |
 | 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | `7df6dda` |
-| 17 | Astras, Conches & Chariots | ✅ done | _this commit_ |
-| 18 | Śānti & Anuśāsana teachings | ⬜ next | — |
-| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaa | ⬜ | — |
+| 17 | Astras, Conches & Chariots | ✅ done | `029586e` |
+| 18 | Śānti & Anuśāsana teachings | ✅ done | _this commit_ |
+| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaña | ⬜ next | — |
 | 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ | — |
 
 ## Session log
@@ -379,3 +379,8 @@ Quality-of-life features that lift the whole codex:
   - `data/relics.ts` with 13 entries: **6 Astras** (Brahmāstra, Pāśupatāstra — held in reserve all war, Nārāyaṇāstra — only countered by total surrender, Gāṇḍīva, Sudarśana-cakra, Vāsava-Śakti — one throw, kills Ghaṭotkaca), **4 Conches** (Pāñcajanya, Devadatta, Pauṇḍra, Anantavijaya), **3 Chariots** (Arjuna's Kapidhvaja with Hanumān on the banner, Karṇa's with Śalya secretly demoralising him, Bhīṣma's tāla-dhvaja silver chariot).
   - `pages/RelicsPage.tsx` with 4 kind-pills, 3-column card grid (`lg:grid-cols-3`) since relics are compact, card uses the one-line *power* as the italic headline, modal opens with a 3-column quick-spec grid (Wielder / Origin / Invoked by) followed by the power blockquote, paragraph lore, and a "Used at" footer card.
   - Wired into `App.tsx` (`/relics`) and `Navigation.tsx` (🏹 Relics, between Vows & Curses and Vanavāsa). Nav now 17 items.
+- **2026-05-29** — **Phase 18 — Śānti & Anuśāsana teachings** shipped.
+  - New `Teaching` interface (`branch: 'Raja-dharma' | 'Apad-dharma' | 'Moksha-dharma' | 'Dana-dharma'`, `source`, `precept`, `exposition[]`, `exemplar`) and a `DivineName` interface for sahasranāma rows.
+  - `data/teachings.ts` carries **9 bedside teachings** across all four branches — Rāja-dharma (three forms of *danda*, the ṣāḍguṇya sixfold policy, the king's three sets of eyes), Āpad-dharma (the doctrine itself + Viśvāmitra and the dog-thigh), Mokṣa-dharma (Janaka and the burning Mithilā, Piṅgalā the courtesan), Dāna-dharma (the three kinds of gift, Karṇa the dānavīra) — plus a `SAHASRANAMA` slice of **24 of the 1000 names of Viṣṇu** that Bhīṣma recites at the close.
+  - `pages/TeachingsPage.tsx` is a *two-mode* page: a mode switcher toggles between **The Four Dharmas** (branch-filtered cards with the precept as headline blockquote and a modal that adds the exemplar footer) and **Viṣṇu-Sahasranāma** (a 3-column card grid where every row carries a numbered medallion, the Devanāgarī, the transliteration, and the gloss, with the *phala-śruti* quoted in a glass panel above). Each branch has its own accent colour driving its filter pill's glow.
+  - Wired into `App.tsx` (`/teachings`) and `Navigation.tsx` (🪴 Teachings, placed right after Gītā since both are dharma teachings). Nav now 18 items.

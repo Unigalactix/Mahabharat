@@ -22,6 +22,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/vishwarupa',   label: 'Vishwarūpa',   glyph: '🌌' },
   { to: '/kurukshetra',  label: 'Kurukshetra',  glyph: '⚔️' },
   { to: '/gita',         label: 'Gītā',         glyph: '📖' },
+  { to: '/teachings',    label: 'Teachings',    glyph: '🪴' },
   { to: '/houses',       label: 'Houses',       glyph: '👑' },
   { to: '/family-tree',  label: 'Lineage',      glyph: '🌳' },
   { to: '/kshetras',     label: 'Kshetras',     glyph: '🛕' },

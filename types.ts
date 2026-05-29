@@ -173,3 +173,24 @@ export interface Relic {
   description: string[];             // 2-3 paragraphs of lore
   usedAt: string;                    // canonical use moment in the epic
 }
+
+export interface Teaching {
+  id: string;
+  branch: 'Raja-dharma' | 'Apad-dharma' | 'Moksha-dharma' | 'Dana-dharma';
+  title: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  source: string;                    // e.g. "Shanti Parva, Bhishma to Yudhishthira"
+  precept: string;                   // one-line distilled teaching (**bold** allowed)
+  exposition: string[];              // 2-3 paragraphs of unpacking
+  exemplar: string;                  // who in the epic embodies (or breaks) the teaching
+}
+
+export interface DivineName {
+  id: number;                        // 1..24 (sample slice from the 1000)
+  number: number;                    // place in the sahasranama
+  name: string;                      // transliterated
+  sanskrit: string;                  // devanagari
+  meaning: string;                   // short translation
+}

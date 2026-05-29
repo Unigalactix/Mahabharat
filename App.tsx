@@ -18,6 +18,7 @@ import { KrishnaPage } from './pages/KrishnaPage';
 import { VishwarupaPage } from './pages/VishwarupaPage';
 import { KurukshetraPage } from './pages/KurukshetraPage';
 import { GitaPage } from './pages/GitaPage';
+import { TeachingsPage } from './pages/TeachingsPage';
 import { HousesPage } from './pages/HousesPage';
 import { FamilyTreePage } from './pages/FamilyTreePage';
 import { KshetrasPage } from './pages/KshetrasPage';
@@ -42,6 +43,7 @@ const App: React.FC = () => (
         <Route path="/vishwarupa"   element={<VishwarupaPage />} />
         <Route path="/kurukshetra"  element={<KurukshetraPage />} />
         <Route path="/gita"         element={<GitaPage />} />
+        <Route path="/teachings"    element={<TeachingsPage />} />
         <Route path="/houses"       element={<HousesPage />} />
         <Route path="/family-tree"  element={<FamilyTreePage />} />
         <Route path="/kshetras"     element={<KshetrasPage />} />
