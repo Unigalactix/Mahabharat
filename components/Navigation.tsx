@@ -62,6 +62,19 @@ export const Navigation: React.FC = () => {
               {item.label}
             </NavLink>
           ))}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event('mbh:open-search'))}
+            title="Search the codex (⌘K or /)"
+            aria-label="Open search palette"
+            className="pill text-xs sm:text-[13px] text-parchment/80 hover:text-goldlight border-gold/30 flex items-center gap-1.5"
+          >
+            <span aria-hidden>🔍</span>
+            <span className="hidden sm:inline">Search</span>
+            <kbd className="hidden md:inline-block text-[9px] border border-parchment/25 rounded px-1 ml-1">
+              ⌘K
+            </kbd>
+          </button>
         </nav>
       </div>
     </header>

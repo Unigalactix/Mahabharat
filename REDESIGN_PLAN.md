@@ -330,8 +330,8 @@ Quality-of-life features that lift the whole codex:
 | 16 | Pratijñās & Śāpas (vows & curses) | ✅ done | `7df6dda` |
 | 17 | Astras, Conches & Chariots | ✅ done | `029586e` |
 | 18 | Śānti & Anuśāsana teachings | ✅ done | `7cd87f8` |
-| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaña | ✅ done | _this commit_ |
-| 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ next | — |
+| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaña | ✅ done | `9eb78eb` |
+| 20 | Cross-cutting polish: search, glossary, SEO, code-split | ✅ done | _this commit_ |
 
 ## Session log
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
@@ -389,3 +389,9 @@ Quality-of-life features that lift the whole codex:
   - `data/antya.ts` carries **12 scenes** — Mausala (3: omens, the reed-clubs at Prabhāsa, Kṛṣṇa under the pīpal); Mahāprasthāna (3: the abdication, the falling of the five with Yudhiṣṭhira's unsparing eulogies, the dog who is Dharma); Svargārohaṇa (3: the inverted heaven where Duryodhana sits on a throne, the road of hell where the cool breath of a brother brings relief, the last bath in the celestial Ganges); Sarpa-yajña (3: the bite of Takṣaka, the snake-sacrifice and Āstīka's intercession, Vaiśampāyana singing the M.Bh. for the first time — the epic's self-closing).
   - `pages/AntyaPage.tsx` renders each arc as a **timeline section** — a coloured arc header (glyph + parva number + Devanāgarī + tagline), then a vertical timeline rail with numbered nodes glowing in the arc's accent, every scene clickable into a modal that shows the setting block as a glass quote, the cast as pills, the full narrative paragraphs, and a final “Vyāsa's reflection” footer in the arc colour. Filter pills let you scope to any single arc.
   - Wired into `App.tsx` (`/antya`) and `Navigation.tsx` (🌅 Antya, **placed last** since it is the closing of the wheel). Nav now 19 items.
+- **2026-05-29** — **Phase 20 — Cross-cutting polish** shipped. The finishing varnish.
+  - **Code-split**: every page except `HomePage` is now `React.lazy()` with a Suspense fallback (🕉️ + *kṣaṇaṁ pratīkṣasva…*). The initial-load chunk drops from one ~530 kB monolith to a small router + home shell plus per-route chunks the browser fetches only when a route is visited.
+  - **Per-route `document.title`**: `App.tsx` mounts a tiny `<RouteTitle />` that watches `useLocation()` and sets the tab title from a `ROUTE_TITLES` map (and scrolls to top on route change — something the app had been quietly missing).
+  - **⌘K / `/` global command palette** (`components/CommandPalette.tsx`): a centred modal that lazy-loads a flat index (`utils/searchIndex.ts`) of **every named entity in the codex** — characters, parvas, episodes, houses, kshetras, backstories, upākhyānas, vows, relics, teachings, the 24 sahasranāma names, and antya scenes — then ranks matches (exact > prefix > label-contains > sublabel > deep). Arrow keys navigate, Enter opens, ESC closes. Each row carries its own glyph and accent colour and a kind-pill. A new "🔍 Search ⌘K" pill in the navigation makes it discoverable; a `mbh:open-search` custom event keeps the coupling loose.
+  - **Sanskrit glossary drawer** (`components/GlossaryDrawer.tsx` + `data/glossary.ts`): a floating *सं* button bottom-right and a `Shift+G` shortcut open a right-side slide-in drawer with **40 essential terms** across 8 categories (Dharma, Yoga, Cosmic, Society, Ritual, Weapon, Place, Time — each with its own accent). Every term carries its devanāgarī, a one-line gloss, and a context sentence rooted in a specific Mahābhārata scene. Live filter by text and by category pill. The reader can now read the codex without a side-text.
+  - No new dependencies. Two new shared components, two new data/util files, one rewritten `App.tsx`, one nav update.
