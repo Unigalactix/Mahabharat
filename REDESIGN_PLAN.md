@@ -168,12 +168,33 @@ Design tokens (already in `index.html`):
   will pick this up automatically on push.
 - ✅ Commit: `feat(app): wire router + cleanup (Phase 12)`
 
-## ⬜ Phase 13 — Deploy verification (NEXT)
-- Push triggers GitHub Actions → `actions/deploy-pages@v4`.
-- Verify `https://unigalactix.github.io/Mahabharat/` serves the full
-  rebuild and not the placeholder.
-- Spot-check deep-links: `/#/characters`, `/#/vanavasa`, `/#/vishwarupa`,
-  `/#/kurukshetra`, `/#/family-tree`.
+## 🟢 Phase 13 — Deploy verification (DONE — the rebuild is LIVE)
+- GitHub Actions run for `637b794` succeeded in 35s
+  (`actions/deploy-pages@v4`).
+- `https://unigalactix.github.io/Mahabharat/` now serves the production
+  bundle `assets/index-CnQhDEW8.js` (401 KB / 130 KB gzipped) — the exact
+  build hash from Phase 12. The `जय` placeholder is gone.
+- All 13 routes are present in the deployed bundle (verified 42 path
+  references). Deep-link `/#/characters` returns HTTP 200, confirming
+  HashRouter behavior across hard refreshes.
+- ✅ The Mahabharata Codex rebuild is complete and live for the world.
+
+---
+
+## 🙏 Project Complete
+
+13 phases. 13 pages. 30 characters, 18 parvas, 22 episodes, 23 noble
+houses, 12 sacred kshetras, 12 Gītā shlokas, an 18-day Kurukshetra
+timeline, and the Chandravansha lineage tree — all rendered as a
+devotional codex inspired by the Ramayana Codex, authored end-to-end
+as **Unigalactix**.
+
+> *सर्वे भवन्तु सुखिनः । सर्वे सन्तु निरामयाः ।*
+>
+> *सर्वे भद्राणि पश्यन्तु मा कश्चिद् दुःखभाग् भवेत् ।*
+>
+> May all be happy. May all be free from illness.
+> May all see auspiciousness. May none suffer.
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -299,3 +320,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 10 (KrishnaPage with 8 names + avatāra purpose + 10 episodes, VishwarupaPage with the `.vishwarupa-stage` darshan + Gītā 11.32 & 11.55 cards, KurukshetraPage with all 18 days driven by KURUKSHETRA_DAYS + commander-pill picker, GitaPage with 7 thematic filters over all 12 shlokas) completed. Build clean.
 - **2026-05-29** — Phase 11 (HousesPage with 7 side-filters + house modal, FamilyTreePage with recursive CHANDRAVANSHA using `.ft-*` classes, KshetrasPage with all 12 sacred sites) completed. All twelve user-facing pages now exist; only Phase 12 (router wiring + cleanup) remains before the rebuild is live.
 - **2026-05-29** — Phase 12 (router wiring + cleanup) completed. App.tsx now mounts Navigation + Routes (13 pages) + Footer; index.tsx wraps with HashRouter (chosen over BrowserRouter so GitHub Pages deep-links survive a refresh without a SPA fallback). Navigation extended to 13 items adding Vanavāsa, Agnātavāsa, Vishvarūpa. Obsolete files removed: `utils/sound.ts`, `backend/`, `public/sounds/`, `public/fonts/`, `public/_redirects`. README rewritten. Bundle: 410 KB JS / 129 KB gzipped (react-router added). Live deploy will pick this up automatically.
+- **2026-05-29** — Phase 13 (deploy verification) completed. GitHub Actions deploy for commit `637b794` finished in 35s. The live site `https://unigalactix.github.io/Mahabharat/` now serves the production bundle `assets/index-CnQhDEW8.js` (the exact hash from Phase 12). 13 routes present (42 path refs in bundle); deep-link `/#/characters` returns 200. The placeholder is gone. 🙏 The Mahabharata Codex rebuild is complete.
