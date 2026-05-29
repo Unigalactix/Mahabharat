@@ -324,8 +324,9 @@ Quality-of-life features that lift the whole codex:
 | 12 | App.tsx wiring + build polish | ✅ done | `637b794` |
 | 13 | Deploy verification | ✅ done | `9ee0741` |
 | — | Post-launch fix: cards content + lineage expand/collapse | ✅ done | `556e6c2` |
-| 14 | Ādi Parva backstories | ⬜ next | — |
-| 15 | Upākhyānas (inset tales) | ⬜ | — |
+| — | Hardening: ErrorBoundary + GH-Pages 404.html SPA fallback | ✅ done | _this commit_ |
+| 14 | Ādi Parva backstories | ✅ done | _this commit_ |
+| 15 | Upākhyānas (inset tales) | ⬜ next | — |
 | 16 | Pratijñās & Śāpas (vows & curses) | ⬜ | — |
 | 17 | Astras, Conches & Chariots | ⬜ | — |
 | 18 | Śānti & Anuśāsana teachings | ⬜ | — |
@@ -355,4 +356,10 @@ Quality-of-life features that lift the whole codex:
   - **19** · Antya parvas — Yādava-Mausala, Kṛṣṇa under the pīpal, Dvārakā into the sea, Mahāprasthāna (the falling Five), Yudhiṣṭhira and the dog, Svargārohaṇa, Janamejaya's sarpa-yajña.
   - **20** · Cross-cutting polish — Ctrl+K global search, Sanskrit glossary drawer, cross-links between characters/episodes/houses, shloka-of-the-day, per-route SEO via react-helmet-async, Open Graph share cards.
   Each phase keeps the existing working agreement: one phase per session, committed & pushed as **Unigalactix**, REDESIGN_PLAN.md updated at the close of each phase.
-- **2026-05-29** — Roadmap extended with Phases 14–20 (story-reference expansion): Ādi Parva backstories, Upākhyānas, Vows & Curses, Astras, Śānti/Anuśāsana teachings, Antya parvas, and cross-cutting QoL (search, glossary, SEO, share cards). One phase per session, same working agreement.
+- **2026-05-29** — Hardening + **Phase 14** in one session.
+  - "Blank page" report turned out to be a stale browser cache: live site `index-DGjxCppG.js` was already serving the post-fix bundle (31 cards verified rendering, 7536px page height, headings present).
+  - **Fix-forever hardening:**
+    - Added `components/ErrorBoundary.tsx` and wrapped `<App />` in `index.tsx`. Any future runtime exception now shows a devotional "Reload / Return Home" panel instead of a blank screen.
+    - Added `public/404.html` SPA fallback. Even non-hash deep-links like `/Mahabharat/characters` now bounce to `/Mahabharat/#/characters` instead of GH-Pages' default 404.
+  - **Phase 14 — Ādi Parva backstories** shipped: new `Backstory` type, `data/backstories.ts` with 10 lineage tales (Śāntanu-Gaṅgā, Bhīṣma-pratijñā, Satyāvatī-Parāśara, Ambā, Pāṇḍu's curse, Karṇa-janma, Droṇa-Drupada, Lākṣāgṛha, forest asuras, Draupadī-svayaṃvara), `pages/BackstoriesPage.tsx` with era filter (All / Pre-Bhārata / Pre-Kuru / Pre-Pāṇḍava) + click-to-expand modal (supports `**bold**` accent emphasis + "Why it matters" footer card). Wired into `App.tsx` (`/backstories`) and `Navigation.tsx` (📜 Backstories, between Episodes and Vanavāsa). Nav now 14 items.
+  - Build: 73 modules, 429.69 kB JS / 135.69 kB gzipped, 1.46s.

@@ -114,3 +114,16 @@ export interface KurukshetraDay {
   highlight: string;
   fallen: string[];
 }
+
+export interface Backstory {
+  id: string;
+  title: string;
+  sanskrit: string;
+  glyph: string;
+  accent: string;
+  parva: string;            // which Parva this is told in (Adi, Vana, etc.)
+  era: 'Pre-Bharata' | 'Pre-Kuru' | 'Pre-Pandava' | 'Pre-War' | 'Mid-War' | 'Post-War';
+  characters: string[];     // primary actors
+  summary: string[];        // 2-3 paragraphs of telling
+  whyItMatters: string;     // one-line forward-link into the main story
+}

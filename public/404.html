@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mahabharata Codex — Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    GitHub Pages SPA fallback.
+
+    When a visitor hits a non-hash URL like /Mahabharat/characters directly
+    (no hash, no extension), GH Pages serves this 404.html. We translate the
+    requested path into a hash route on the canonical app and redirect.
+
+    Net effect: deep-links to the app never blank, even if someone strips
+    the hash or pastes a partial URL.
+  -->
+  <script>
+    (function () {
+      var BASE = '/Mahabharat/';
+      var path = window.location.pathname || '/';
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+
+      // Strip the GH-Pages base prefix to recover the in-app route.
+      var route = path.indexOf(BASE) === 0 ? path.slice(BASE.length) : path.replace(/^\//, '');
+
+      // If a real hash was provided, honour it; otherwise turn the path into one.
+      var target = BASE + (hash || ('#/' + route + search));
+      window.location.replace(target);
+    })();
+  </script>
+  <style>
+    body { background: #08060F; color: #F5E8C9; font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; }
+    .panel { text-align: center; padding: 32px; }
+    .om { font-size: 56px; }
+    a { color: #F5D061; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="om">🕉️</div>
+    <p>Redirecting to the Codex…</p>
+    <p><a href="/Mahabharat/">Return to home</a></p>
+  </div>
+</body>
+</html>
