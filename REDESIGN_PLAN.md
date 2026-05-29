@@ -99,14 +99,25 @@ Design tokens (already in `index.html`):
 - Components compile clean but are tree-shaken until Phase 8 imports them.
 - ✅ Commit: `feat: shared devotional components (Phase 7)`
 
-## ⬜ Phase 8 — Pages I: Home / Characters / Parvas (NEXT)
-**Files:** `pages/HomePage.tsx`, `pages/CharactersPage.tsx`, `pages/ParvasPage.tsx`
-- HomePage: Hero, themes (Dharma/Karma/Bhakti/Moksha), stats strip, featured
-  characters & parvas, devotional CTA panels.
-- CharactersPage: filterable grid of all 30 characters with the
-  CharacterModal wired.
-- ParvasPage: vertical scroll of 18 ParvaTiles with the ParvaModal.
+## 🟢 Phase 8 — Pages I: Home / Characters / Parvas (DONE)
+**Files:** [`pages/HomePage.tsx`](pages/HomePage.tsx) · [`pages/CharactersPage.tsx`](pages/CharactersPage.tsx) · [`pages/ParvasPage.tsx`](pages/ParvasPage.tsx)
+- HomePage: hero, four dharma themes (Dharma/Karma/Bhakti/Moksha), stats
+  strip, count chips, six featured characters, five featured parvas, four
+  devotional CTA panels (Krishna/Kurukshetra/Gita/Houses), closing
+  charama-shloka 18.66.
+- CharactersPage: filter pills (All / Pandavas / Kauravas / Divine / Elders /
+  Allies) over all 30 flippable CharacterCards with CharacterModal wired.
+- ParvasPage: 3-column responsive grid of all 18 ParvaTiles with ParvaModal.
 - ✅ Commit: `feat(pages): Home, Characters, Parvas (Phase 8)`
+
+## ⬜ Phase 9 — Pages II: Episodes / Vanavasa / Agnatavasa (NEXT)
+**Files:** `pages/EpisodesPage.tsx`, `pages/VanavasaPage.tsx`, `pages/AgnatavasaPage.tsx`
+- EpisodesPage: timeline of all 22 episodes from Krishna janma to mahaprasthana.
+- VanavasaPage: dedicated page for the 12-year forest exile — Yaksha prashna,
+  Saugandhika, Pashupata, sage-tales of Nala & Savitri.
+- AgnatavasaPage: the year of hidden disguise in Virata — each Pandava’s
+  alias, Kichaka, cattle-raid reveal.
+- ✅ Commit: `feat(pages): Episodes, Vanavasa, Agnatavasa (Phase 9)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -211,10 +222,10 @@ Design tokens (already in `index.html`):
 | 3 | Data: Parvas | ✅ done | `46234e7` |
 | 4 | Data: Episodes | ✅ done | `7cc9f57` |
 | 5 | Data: Houses | ✅ done | `b047373` |
-| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ✅ done | _this commit_ |
-| 7 | Shared components | ✅ done | _this commit_ |
-| 8 | Pages I — Home / Characters / Parvas | 🟡 next | — |
-| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ⬜ | — |
+| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ✅ done | `676fc8f` |
+| 7 | Shared components | ✅ done | `d5b3ecd` |
+| 8 | Pages I — Home / Characters / Parvas | ✅ done | _this commit_ |
+| 9 | Pages II — Episodes / Vanavasa / Agnatavasa | 🟡 next | — |
 | 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ⬜ | — |
 | 11 | Pages IV — Houses / Family Tree / Kshetras | ⬜ | — |
 | 12 | App.tsx wiring + build polish | ⬜ | — |
@@ -227,3 +238,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 5 (23 noble Houses) completed. Pushed as `b047373`.
 - **2026-05-29** — Phase 6 (Kshetras 12 · Lineage tree · Gita 12 shlokas · 18 Kurukshetra days) completed. Data layer of the epic is now complete.
 - **2026-05-29** — Phase 7 (8 shared components: Navigation, Hero, SectionTitle, CharacterCard, CharacterModal, ParvaTile, ParvaModal, Footer) completed. Live site `https://unigalactix.github.io/Mahabharat/` confirmed serving the placeholder — deploy pipeline healthy.
+- **2026-05-29** — Phase 8 (HomePage, CharactersPage, ParvasPage) completed. Pages compile clean but are still tree-shaken until App.tsx wires the router in Phase 12.
