@@ -196,90 +196,106 @@ as **Unigalactix**.
 > May all be happy. May all be free from illness.
 > May all see auspiciousness. May none suffer.
 
-## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
-**File:** `data/episodes.ts`
-- 18–24 episodes spanning: Krishna's birth & lila, Govardhan, Sudarshan, the
-  Rajasuya, the dice game, Draupadi's vastraharan, the 12-year **Vanavasa**, the
-  1-year **Agnatavasa** in Matsya, the failed peace embassy, Vishwarupa, Bhishma
-  Pratigya, Abhimanyu & the Chakravyuha, Karna vs Arjuna, the night of
-  Ashwatthama, Parikshit's rescue, Yudhishthira's ascent.
-- ✅ Commit: `data: add Mahabharata episodes (Phase 4)`
+## ⬜ Phase 14 — Ādi Parva backstories
+**New file:** `data/backstories.ts` · **New page:** `pages/BackstoriesPage.tsx` · **Route:** `/backstories`
+The lineage stories that set the stage *before* the dice game. Each card has
+sanskrit title, glyph, accent, a 2-paragraph telling, and a "why it matters"
+note that links forward into the main story.
+- **Śāntanu & Gaṅgā** — the river-bride who drowns seven sons; the eighth becomes Devavrata.
+- **Bhīṣma-Pratijñā** — Devavrata's terrible vow of celibacy for his father's love of Satyavatī.
+- **Satyavatī & Parāśara** — the fisherwoman who would bear Vyāsa on an island in the Yamunā.
+- **Ambā · Ambikā · Ambālikā** — Bhīṣma's abduction, Ambā's curse, the Niyoga of Vyāsa.
+- **Pāṇḍu's curse** — the deer in coitus, the king who must not love his queens.
+- **Karṇa-janma** — Kuntī's mantra, the Sun-god, the basket on the Aśva river.
+- **Drona & Drupada** — the broken friendship that births a son born of fire to kill the teacher.
+- **Lākṣāgṛha** — the wax-palace at Vāraṇāvata and the tunnel of Vidura's mole.
+- **Bakāsura · Hiḍimba · Hiḍimbī** — the forest demons of the exile years that pre-figure Ghaṭotkaca.
+- **Draupadī-svayaṃvara** — the fish-eye target, the brāhmaṇa-disguised Arjuna, the unintended five-husband vow.
+- ✅ Commit: `feat(pages): Adi Parva backstories (Phase 14)`
 
-## ⬜ Phase 5 — Data: Noble Houses
-**File:** `data/houses.ts`
-- All houses including small but important ones: Kuru, Panchala, Matsya, Yadava
-  (Vrishni), Magadha, Sindhu, Gandhara, Kashi, Kekaya, Madra, Chedi, Anga,
-  Vidarbha, Pragjyotisha, Pandya, Kalinga, Trigarta, Nishadha, Kunti-Bhoja,
-  Salwa, Avanti, Manipura, Naga (Uloopi).
-- ✅ Commit: `data: add noble houses (Phase 5)`
+## ⬜ Phase 15 — Upākhyānas (the inset tales)
+**New file:** `data/upakhyanas.ts` · **New page:** `pages/UpakhyanasPage.tsx` · **Route:** `/upakhyanas`
+The great epic carries other epics inside it. The forest sages tell these to
+the Pāṇḍavas to console them; we tell them as their own codex cards.
+- **Nala & Damayantī** (Vana Parva) — the gambling king and the queen who finds him again.
+- **Sāvitrī & Satyavān** (Vana Parva) — the wife who out-argues Yama himself.
+- **Śakuntalā & Duṣyanta** (Ādi Parva) — the origin of the very name *Bhārata*.
+- **Yayāti** (Ādi Parva) — the king who borrowed his son's youth and learned its cost.
+- **Aṣṭāvakra** (Vana Parva) — the eight-bent sage who silenced the court of Janaka.
+- **Rāma-kathā** (Vana Parva, *Rāmopākhyāna*) — the Rāmāyaṇa retold to Yudhiṣṭhira by Mārkaṇḍeya.
+- **Mudgala** (Vana Parva) — the sage who refused heaven itself.
+- **Mātsya** (Vana Parva) — the first avatāra & the great flood.
+- ✅ Commit: `feat(pages): Upakhyanas (Phase 15)`
 
-## ⬜ Phase 6 — Data: Kshetras + Family Tree + Gita Shlokas + Kurukshetra Days
-**Files:** `data/kshetras.ts`, `data/lineage.ts`, `data/gita.ts`, `data/kurukshetra.ts`
-- **Kshetras**: Kurukshetra, Hastinapura, Indraprastha, Dwaraka, Mathura,
-  Vrindavan, Jyotisar, Somnath, Prabhasa.
-- **Lineage**: Chandravansha tree from Brahma → Soma → Yayati → Puru → Kuru →
-  Shantanu → Pandavas/Kauravas → Parikshit.
-- **Gita**: ~10 hand-picked shlokas (2.47, 2.20, 4.7-8, 6.5, 9.22, 11.32, 18.66
-  + Vishwarupa verses).
-- **Kurukshetra Days**: 18-day timeline.
-- ✅ Commit: `data: add kshetras, lineage, gita, kurukshetra (Phase 6)`
+## ⬜ Phase 16 — Pratijñās & Śāpas (Vows & Curses)
+**New file:** `data/vows.ts` · **New page:** `pages/VowsPage.tsx` · **Route:** `/vows-and-curses`
+Two parallel codex grids on one page — the iron oaths and the karmic
+sentences that run the entire epic like clockwork.
+- **Vows (pratijñā):**
+  - Bhīṣma's celibacy.
+  - Draupadī's vow on her hair (untied until washed in Duḥśāsana's blood).
+  - Bhīma's two vows (Duḥśāsana's blood; Duryodhana's thigh).
+  - Arjuna's "by sundown or self-immolation" (Jayadratha-vadha).
+  - Karṇa's "I will not refuse a brāhmaṇa" (and the cost: his kavaca-kuṇḍala).
+  - Kṛṣṇa's "I will not lift a weapon" (and the Sudarśana raised twice).
+- **Curses (śāpa):**
+  - Karṇa cursed by Paraśurāma (mantra forgotten in the hour of need).
+  - Karṇa cursed by the brāhmaṇa (chariot wheel swallowed by earth).
+  - Aśvatthāmā cursed by Kṛṣṇa (3,000 years wandering, festering).
+  - Gāndhārī's curse on Kṛṣṇa (the Yādava-mausala).
+  - Urvaśī's curse on Arjuna (one year as a eunuch — which saves the Agnātavāsa).
+  - Pāṇḍu's hunting curse from sage Kindama.
+  - Yudhiṣṭhira's curse on women ("no woman shall keep a secret again").
+- ✅ Commit: `feat(pages): Pratijnas and Shapas (Phase 16)`
 
----
+## ⬜ Phase 17 — Astras, Conches & Chariots
+**New file:** `data/astras.ts` · **New page:** `pages/AstrasPage.tsx` · **Route:** `/astras`
+The arsenal of the epic — divine weapons, sounding-conches, banner-chariots,
+armor and bows. Codex cards with origin, owner, invocation, counter, and the
+one battle that decided everything for it.
+- **Astras** — Pāśupata, Brahmāstra, Brahmaśiras, Nārāyaṇāstra, Vaiṣṇavāstra, Āgneyāstra, Vāruṇāstra, Vāyavyāstra, Nāgāstra, Añjalikāstra, Sammohanāstra.
+- **Discus & mace** — Sudarśana-cakra (Kṛṣṇa), Kaumodakī (Kṛṣṇa's mace), Bhīma's mace.
+- **Bows** — Gāṇḍīva (Arjuna), Vijaya (Karṇa), Śārṅga (Kṛṣṇa).
+- **Conches (śaṅkha)** — Pāñcajanya (Kṛṣṇa), Devadatta (Arjuna), Pauṇḍra (Bhīma), Anantavijaya (Yudhiṣṭhira), Sughoṣa (Nakula), Maṇipuṣpaka (Sahadeva).
+- **Chariots & banners** — Kapidhvaja (Arjuna, Hanumān-flag), Mayūradhvaja, the white horses of Kṛṣṇa.
+- **Armor (kavaca)** — Karṇa's birth-kavaca, Abhimanyu's gift-kavaca.
+- ✅ Commit: `feat(pages): Astras and divine arms (Phase 17)`
 
-## ⬜ Phase 7 — Shared Components
-- `components/Navigation.tsx` — sticky pill nav.
-- `components/Hero.tsx` — Cinzel Decorative title, chakra SVG, devotional shloka.
-- `components/SectionTitle.tsx`.
-- `components/CharacterCard.tsx` + `components/CharacterModal.tsx`.
-- `components/ParvaTile.tsx` + `components/ParvaModal.tsx`.
-- `components/Footer.tsx` — Jaya invocation.
-- ✅ Commit: `feat: shared codex components (Phase 7)`
+## ⬜ Phase 18 — Śānti & Anuśāsana — Bhīṣma's deathbed teachings
+**New file:** `data/teachings.ts` · **New page:** `pages/TeachingsPage.tsx` · **Route:** `/teachings`
+Bhīṣma on the bed of arrows is the longest single discourse in world
+literature. We render four pillars as glass-cards with a representative
+shloka each, plus a short summary.
+- **Rāja-dharma-parva** — the duties of a king (Yudhiṣṭhira's first lesson).
+- **Āpad-dharma-parva** — dharma in times of catastrophe.
+- **Mokṣa-dharma-parva** — the path of liberation; the highest yoga.
+- **Dāna-dharma-parva** (Anuśāsana) — the dharma of giving.
+- **Viṣṇu-sahasranāma** — the 1000 names taught to Yudhiṣṭhira at Bhīṣma's request; we render 24 chosen names with meanings.
+- ✅ Commit: `feat(pages): Shanti and Anushasana teachings (Phase 18)`
 
-## ⬜ Phase 8 — Pages I (Devotional core)
-- `pages/HomePage.tsx` — hero, Mangala-charanam invocation, stats, pantheon
-  preview, parva preview, CTAs.
-- `pages/CharactersPage.tsx` — full holographic pantheon grid.
-- `pages/ParvasPage.tsx` — 18 numbered tiles.
-- ✅ Commit: `feat: home + characters + parvas pages (Phase 8)`
+## ⬜ Phase 19 — Antya: Mausala · Mahāprasthāna · Svargārohaṇa
+**New file:** `data/antya.ts` · **New page:** `pages/AntyaPage.tsx` · **Route:** `/antya`
+The end-rites of the epic — the quiet, devastating closing parvas that are
+usually skipped in retellings.
+- **The Yādava-Mausala** — the iron-pestle prophecy, the seaside drunken brawl, the destruction of the Vṛṣṇis.
+- **Kṛṣṇa under the pīpal** — the hunter Jara, the mistaken arrow, the avatāra returning to Vaikuṇṭha.
+- **Dwārakā into the sea** — Arjuna leads the survivors out; the city drowns behind them.
+- **Arjuna's lost Gāṇḍīva** — robbed by tribal forest-dwellers; he cannot lift it.
+- **Mahāprasthāna** — the six Pāṇḍavas + Draupadī + the dog of dharma walking north to the Himālaya.
+- **The fallings** — Draupadī first; then Sahadeva, Nakula, Arjuna, Bhīma; each with their named flaw.
+- **Yudhiṣṭhira & the dog** — Indra's chariot, the refusal of heaven without the dog who is Dharma.
+- **Svargārohaṇa** — the vision of hell, the truth of heaven, Janamejaya's final sarpa-yajña, the epic closes.
+- ✅ Commit: `feat(pages): Antya Parvas (Phase 19)`
 
-## ⬜ Phase 9 — Pages II (Story arcs)
-- `pages/EpisodesPage.tsx` — episode codex grid.
-- `pages/VanavasaPage.tsx` — 12-year forest exile timeline + key encounters
-  (Yaksha Prashna, Hidimba, Bakasura, Jayadratha's abduction).
-- `pages/AgnatavasaPage.tsx` — Matsya disguises (Kanka, Vallabha, Brihannala,
-  Granthika, Tantipala, Sairandhri), Kichaka, Virata war.
-- ✅ Commit: `feat: episodes + vanavasa + agnatavasa pages (Phase 9)`
-
-## ⬜ Phase 10 — Pages III (Krishna & War)
-- `pages/KrishnaPage.tsx` — birth, lila, Govardhan, Sudarshan, friendship with
-  Arjuna, peace embassy, Sarathya (charioteer).
-- `pages/VishwarupaPage.tsx` — full-screen Vishwarupa stage with conic rays,
-  Aum glyph, Gita 11 verses, Arjuna's awe & surrender.
-- `pages/KurukshetraPage.tsx` — battle-grid (Pandavas vs Kauravas), 18-day
-  timeline, commanders, day highlights.
-- `pages/GitaPage.tsx` — shloka cards with Sanskrit + transliteration +
-  translation + meaning.
-- ✅ Commit: `feat: krishna + vishwarupa + kurukshetra + gita pages (Phase 10)`
-
-## ⬜ Phase 11 — Pages IV (Geography & Lineage)
-- `pages/HousesPage.tsx` — every noble house as a codex card with banner,
-  capital, patriarch, notable members, alignment, legacy.
-- `pages/FamilyTreePage.tsx` — Chandravansha tree using `.ft-node` blocks.
-- `pages/KshetrasPage.tsx` — sacred geography map.
-- ✅ Commit: `feat: houses + family tree + kshetras pages (Phase 11)`
-
-## ⬜ Phase 12 — Composition & Polish
-- `App.tsx` — router with all routes; replace landing/menu/chatbot.
-- `index.tsx` — unchanged.
-- Remove obsolete `utils/sound.ts` references if any.
-- Update `vite.config.ts` `base` if needed (already `/Mahabharat/`).
-- Update `README.md` to "Mahabharata Codex".
-- Build verify: `npm run build`.
-- ✅ Commit: `feat: wire router and polish (Phase 12)`
-
-## ⬜ Phase 13 — Deploy
-- Push `main` (triggers GitHub Pages workflow).
-- ✅ Commit message: `release: Mahabharata Codex devotional redesign`.
+## ⬜ Phase 20 — Cross-cutting polish
+Quality-of-life features that lift the whole codex:
+- **Global search** (`Ctrl+K`) — fuzzy match across characters, parvas, episodes, houses, kshetras, astras, vows, teachings.
+- **Glossary** of Sanskrit terms (dharma, karma, mokṣa, yajña, tapasya, brāhmaṇa, kṣatriya, vaiśya, śūdra, varṇa, āśrama, saṃsāra, ātman, brahman, …) as a side-drawer with anchor links.
+- **Cross-links** — clicking a character name inside any episode/house/teaching navigates to that character's modal/page.
+- **Shloka of the day** on the homepage (rotates daily across all collected shlokas).
+- **SEO** — per-route `<title>` and `<meta description>` via `react-helmet-async`.
+- **Open Graph share cards** — pre-rendered 1200x630 PNGs for each route so links unfurl beautifully on social.
+- ✅ Commit: `feat(qol): search, glossary, cross-links, SEO, share cards (Phase 20)`
 
 ---
 
@@ -304,9 +320,17 @@ as **Unigalactix**.
 | 8 | Pages I — Home / Characters / Parvas | ✅ done | `9c31e84` |
 | 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ✅ done | `a354930` |
 | 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ✅ done | `f85c748` |
-| 11 | Pages IV — Houses / Family Tree / Kshetras | ✅ done | _this commit_ |
-| 12 | App.tsx wiring + build polish | 🟡 next | — |
-| 13 | Deploy | ⬜ | — |
+| 11 | Pages IV — Houses / Family Tree / Kshetras | ✅ done | `b33e7e3` |
+| 12 | App.tsx wiring + build polish | ✅ done | `637b794` |
+| 13 | Deploy verification | ✅ done | `9ee0741` |
+| — | Post-launch fix: cards content + lineage expand/collapse | ✅ done | `556e6c2` |
+| 14 | Ādi Parva backstories | ⬜ next | — |
+| 15 | Upākhyānas (inset tales) | ⬜ | — |
+| 16 | Pratijñās & Śāpas (vows & curses) | ⬜ | — |
+| 17 | Astras, Conches & Chariots | ⬜ | — |
+| 18 | Śānti & Anuśāsana teachings | ⬜ | — |
+| 19 | Antya: Mausala · Mahāprasthāna · Svargārohaa | ⬜ | — |
+| 20 | Cross-cutting polish: search, glossary, SEO, share cards | ⬜ | — |
 
 ## Session log
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
@@ -321,3 +345,14 @@ as **Unigalactix**.
 - **2026-05-29** — Phase 11 (HousesPage with 7 side-filters + house modal, FamilyTreePage with recursive CHANDRAVANSHA using `.ft-*` classes, KshetrasPage with all 12 sacred sites) completed. All twelve user-facing pages now exist; only Phase 12 (router wiring + cleanup) remains before the rebuild is live.
 - **2026-05-29** — Phase 12 (router wiring + cleanup) completed. App.tsx now mounts Navigation + Routes (13 pages) + Footer; index.tsx wraps with HashRouter (chosen over BrowserRouter so GitHub Pages deep-links survive a refresh without a SPA fallback). Navigation extended to 13 items adding Vanavāsa, Agnātavāsa, Vishvarūpa. Obsolete files removed: `utils/sound.ts`, `backend/`, `public/sounds/`, `public/fonts/`, `public/_redirects`. README rewritten. Bundle: 410 KB JS / 129 KB gzipped (react-router added). Live deploy will pick this up automatically.
 - **2026-05-29** — Phase 13 (deploy verification) completed. GitHub Actions deploy for commit `637b794` finished in 35s. The live site `https://unigalactix.github.io/Mahabharat/` now serves the production bundle `assets/index-CnQhDEW8.js` (the exact hash from Phase 12). 13 routes present (42 path refs in bundle); deep-link `/#/characters` returns 200. The placeholder is gone. 🙏 The Mahabharata Codex rebuild is complete.
+- **2026-05-29** — Post-launch fix `556e6c2`: (1) character cards were rendering empty rings because `tc-frame` (which uses `mask-composite: exclude` to draw a hollow gold border) was applied to the same element as `tc-face`, masking away ALL face content. Split `tc-frame` into its own overlay element inside each face; lifted `tc-corner` + `tc-rarity-badge` out of `tc-inner` so they aren't blanketed by the inner radial gradient. (2) `FamilyTreePage` is now expand/collapse: each node with descendants shows a gold +/− toggle with child count; page-level controls Expand all / Default view / Collapse all (implemented via `key` remount). Added `.ft-toggle` / `.ft-toggle-count` / `.pill-active` styles.
+- **2026-05-29** — Roadmap extended with **Phases 14–20** (story-reference expansion):
+  - **14** · Ādi Parva backstories — Śāntanu-Gaṅgā, Bhīṣma's vow, Satyāvatī, Ambā/Ambikā/Ambālikā, Pāṇḍu's curse, Karṇa-janma, Lākṣāgṛha, Bakāsura/Hiḍimbā, Draupadī-svayaa.
+  - **15** · Upākhyānas — the inset epics: Nala-Damayantī, Sāvitrī-Satyavān, Śakuntalā-Duṣyanta, Yayāti, Aṣṭāvakra, Rāmāyaṇa retold to Yudhiṣṭhira.
+  - **16** · Pratijñās & Śāpas — a parallel codex of every great vow (Bhīṣma, Draupadī's hair, Bhīma's two oaths, Arjuna's sunset oath…) and every great curse (Karṇa from Paraśurāma, Karṇa from the brāhmaṇa, Aśvatthāmā from Kṛṣṇa, Gāndhārī on Kṛṣṇa, Urvaśī on Arjuna).
+  - **17** · Astras & Relics — Pāśupata, Brahmāstra, Nārāyaṇāstra, Vaiṣṇavāstra, Sudarśana, Gāṇḍīva, Vijaya, all six Pāṇḍava conches, Kapidhvaja chariot, Karṇa's birth-kavaca.
+  - **18** · Śānti & Anuśāsana teachings — Rāja-dharma, Āpad-dharma, Mokṣa-dharma, Dāna-dharma, and 24 names from Viṣṇu-sahasranāma.
+  - **19** · Antya parvas — Yādava-Mausala, Kṛṣṇa under the pīpal, Dvārakā into the sea, Mahāprasthāna (the falling Five), Yudhiṣṭhira and the dog, Svargārohaṇa, Janamejaya's sarpa-yajña.
+  - **20** · Cross-cutting polish — Ctrl+K global search, Sanskrit glossary drawer, cross-links between characters/episodes/houses, shloka-of-the-day, per-route SEO via react-helmet-async, Open Graph share cards.
+  Each phase keeps the existing working agreement: one phase per session, committed & pushed as **Unigalactix**, REDESIGN_PLAN.md updated at the close of each phase.
+- **2026-05-29** — Roadmap extended with Phases 14–20 (story-reference expansion): Ādi Parva backstories, Upākhyānas, Vows & Curses, Astras, Śānti/Anuśāsana teachings, Antya parvas, and cross-cutting QoL (search, glossary, SEO, share cards). One phase per session, same working agreement.
