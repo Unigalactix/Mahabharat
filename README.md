@@ -1,172 +1,80 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# महाभारत · Mahābhārata Codex
 
-# Mahabharat — Interactive Mahabharata Explorer
+> *यतो धर्मस्ततो जयः* — *Where there is dharma, there is victory.*
 
-An interactive, educational web application built with React + TypeScript and Vite that visualizes the Mahabharata epic.
+A premium, devotional interactive infographic to Vyāsa's eternal epic — built with React + TypeScript + Vite and deployed to GitHub Pages.
 
-Key features
- - Router-based pages (Home, Family Tree, Parvas, Kurukshetra, Timeline/Key Moments, Participants)
- - Expandable, premium-styled MindMap for Kurukshetra battlefield interactions
- - Smooth cubic Bézier connectors in the Family Tree visualization
- - Floating UI chatbot named **GANESHA** (frontend UI included). Backend-based memory/LLM integration documented below.
+**Live site:** <https://unigalactix.github.io/Mahabharat/>
 
 ---
 
-## Quickstart (development)
+## What's inside
 
-Requirements
+Thirteen routed pages covering the full sweep of the epic:
 
-- Node.js 16+ (Node 18+ recommended)
-- npm (or pnpm/yarn)
+| Route | Page | What it holds |
+|-------|------|---------------|
+| `/`              | Home          | Devotional landing with themes, stats, featured cards, closing *charama-shloka* (Gītā 18.66) |
+| `/characters`    | Characters    | 30 flippable trading cards across six filters (Pāṇḍava / Kaurava / Divine / Elder / Ally) |
+| `/parvas`        | Parvas        | All 18 Mahā-Parvas with full modal narratives |
+| `/episodes`      | Episodes      | 22-event timeline with six phase filters (Krishna's līlā, Exile, the 18 Days, etc.) |
+| `/vanavasa`      | Vanavāsa      | The 12-year forest exile — Akṣaya Pātra, Pāśupata, Yakṣa-Praśna, sage-tales |
+| `/agnatavasa`    | Agnātavāsa    | The year of hidden disguise in Virāṭa — six aliases, Kīcaka, the Revelation |
+| `/krishna`       | Krishna       | The Yādava — eight nāmas, avatāra-purpose (Gītā 4.7–8), ten defining episodes |
+| `/vishwarupa`    | Vishwarūpa    | Chapter 11 *darśana* — animated radial stage, Gītā 11.32 (*kālo'smi*) and 11.55 |
+| `/kurukshetra`   | Kurukshetra   | All 18 days of war with day-picker, commanders, and fallen |
+| `/gita`          | Bhagavad Gītā | 12 defining shlokas with seven thematic filters |
+| `/houses`        | Houses        | 23 noble houses with seven side filters and full modal chronicles |
+| `/family-tree`   | Lineage       | Recursive Chandravaṁśa from Soma to Parīkṣit |
+| `/kshetras`      | Kshetras      | 12 sacred sites — Kurukṣetra, Mathurā, Vṛndāvana, Dvārakā, Naimiṣāraṇya… |
 
-1. Install dependencies
+---
+
+## Quickstart
 
 ```powershell
-cd C:\Users\kodag\Downloads\GITHUB\Mahabharat
 npm install
+npm run dev      # http://localhost:5173/
+npm run build    # production bundle in dist/
+npm run preview  # serve the production bundle locally
 ```
 
-2. Start the development server (Vite)
+Requirements: Node 18+.
 
-```powershell
-npm run dev
+---
+
+## Architecture
+
+```
+data/         # All epic data — types-checked, single source of truth
+  characters.ts    parvas.ts        episodes.ts
+  houses.ts        kshetras.ts      gita.ts
+  kurukshetra.ts   lineage.ts
+components/   # Shared presentational components
+  Navigation Hero SectionTitle Footer
+  CharacterCard CharacterModal ParvaTile ParvaModal
+pages/        # One file per route (13 total)
+App.tsx       # Router shell — Navigation + <Routes> + Footer
+index.tsx     # HashRouter entry (GitHub Pages friendly)
+index.html    # Tailwind via CDN + premium devotional CSS system
+types.ts      # All shared types
 ```
 
-Open the dev URL printed by Vite (for example: http://localhost:5173/).
+The design system (palette, fonts, animated `.vishwarupa-stage`, `.shloka-card`, `.ft-tree`, `.codex-card`, etc.) lives entirely in [index.html](index.html).
 
-3. Build for production
+### Routing
 
-```powershell
-npm run build
-```
+`HashRouter` is used so that GitHub Pages deep-links (`/Mahabharat/#/characters`) survive a hard refresh without a server-side SPA fallback.
 
-4. Preview the production build
+### Deploy
 
-```powershell
-npm run preview
-```
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds on push to `main` and publishes to the GitHub Pages environment using `actions/deploy-pages@v4`. Repo Settings → Pages source must be set to **GitHub Actions**.
 
 ---
 
-## Repository layout
+## Credits
 
-Top-level files
+Built and maintained by [**Unigalactix**](https://github.com/Unigalactix). The text is the author's retelling; the design is original; the source — the Mahābhārata of Kṛṣṇa-Dvaipāyana Vyāsa — belongs to no one and to everyone.
 
-- `App.tsx` — application shell, routing and top-level layout
-- `index.tsx`, `index.html` — Vite entry
-- `package.json`, `tsconfig.json`, `vite.config.ts` — build and tooling config
-- `README.md` — this file
-
-Folders
-
-- `components/` — reusable components (FamilyTree, MindMap, GaneshaChatbot, Header, Section, Timeline, CharacterCard, etc.)
-- `pages/` — (if present) routed pages for each top-level view
-- `public/` — static assets (images, sounds)
-- `utils/` — small helpers (sound, etc.)
-- `types.ts` / `constants.ts` — shared app types and constants
-
----
-
-## Notable components and pages
-
-- `MindMap` (`components/MindMap.tsx`)
-  - Recursive, expandable nodes for the Kurukshetra battlefield view.
-  - Smooth CSS transitions, premium styling (gradients, glow), and layout that expands within a background panel.
-
-- `FamilyTree` (`components/FamilyTree.tsx`)
-  - Visual family tree using SVG paths with cubic Bézier curves for smooth relationship connectors.
-
-- `GaneshaChatbot` (`components/GaneshaChatbot.tsx`)
-  - Floating chatbot UI with a toggle button and chat panel. Currently frontend-only; the README contains guidance to connect a real backend for memory/LLM powered replies.
-
-- `Parvas` data (`parvas.ts`) and `ParvasSection`/`ParvasPage`
-  - Centralized Parva metadata used by the Parvas page/section.
-
----
-
-## Development notes & recommendations
-
-- Use TypeScript types defined in `types.ts` for shared shapes.
-- When renaming files, update imports across the codebase. On Windows the filesystem is case-insensitive; tests/CI on Linux/macOS may expose case issues.
-- Vite provides fast HMR — keep the dev server running while iterating.
-
-Recommended editor settings
-
-- Enable TypeScript/ESLint plugins in VS Code for inline feedback.
-- Prettier config (if used) should be followed for consistent formatting.
-
----
-
-## GANESHA: adding PDF-based memory (overview)
-
-The project ships with a frontend-only GANESHA chat UI. To make GANESHA answer questions using the Complete Mahabharata PDF (or any document corpus), you will need a backend retrieval+LLM pipeline. High-level steps:
-
-1. PDF ingestion
-   - Extract text from the PDF using a library (Node: `pdf-parse`/`pdfjs-dist`; Python: `pypdf`/`pdfminer.six`).
-   - Clean and split text into chunks (suggested chunk size 500–1000 tokens with some overlap).
-
-2. Embeddings
-   - Generate embeddings for each chunk using an embedding model (OpenAI embeddings, Cohere, or an open-source embedder such as `sentence-transformers`).
-
-3. Vector store
-   - Store embeddings in a vector database (FAISS, Milvus, Weaviate, Pinecone, Supabase Vector DB, etc.).
-
-4. Retrieval + generation
-   - For each user question: embed the query, retrieve top-k similar chunks, then call an LLM with the retrieved context (and the user prompt) to generate a grounded reply.
-
-5. Security & costs
-   - Keep API keys server-side. Monitor embedding and LLM call costs.
-
-Example scaffolds I can provide on request
-
-- Node.js + Express + Pinecone + OpenAI (fast to prototype)
-- Python + FastAPI + FAISS + sentence-transformers (self-hosted option)
-
-If you want a ready-made example, tell me which stack you prefer and I will generate a backend scaffold (PDF ingestion script, embedding + indexing, and a simple retrieval API the frontend can call).
-
----
-
-## Testing & CI
-
-- No automated tests were added by default. Recommended additions:
-  - Unit tests for pure utilities (Vitest/Jest)
-  - Component tests for critical UI (React Testing Library + Vitest)
-  - E2E smoke tests (Playwright)
-
-- Add a GitHub Actions workflow to run tests and type checks on pull requests.
-
----
-
-## Troubleshooting
-
-- Dev server errors: run `npm install` and ensure Node version is compatible.
-- TypeScript import or duplicate-declaration errors: run `npm run build` to see full typecheck output and inspect the reported files.
-- Git push errors: confirm the remote and branch permissions and that your local repo is up-to-date.
-
----
-
-## Contributing
-
-- Fork the repo and create feature branches for larger changes.
-- Keep PRs small and focused. Include tests for new or changed logic.
-- Update `types.ts` when changing shared data shapes.
-
-If you'd like I can add `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, unit tests, or a GitHub Actions CI config — tell me which and I will scaffold them.
-
----
-
-## License
-
-Add a `LICENSE` file to indicate your chosen license (MIT is common). This repository currently does not contain a license file.
-
----
-
-If you want, I will also:
-
-- Add a small backend scaffold for PDF ingestion and retrieval (Node or Python).
-- Add basic unit tests and a GitHub Actions workflow.
-- Add CONTRIBUTING and CODE_OF_CONDUCT templates.
-
-Tell me which of those you'd like next.
+> *सर्वे भवन्तु सुखिनः। सर्वे सन्तु निरामयाः।*<br>
+> *सर्वे भद्राणि पश्यन्तु। मा कश्चिद् दुःखभाग्भवेत्॥*

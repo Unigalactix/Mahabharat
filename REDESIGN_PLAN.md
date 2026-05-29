@@ -154,16 +154,26 @@ Design tokens (already in `index.html`):
   significance + accent-glyph.
 - ✅ Commit: `feat(pages): Houses, Family Tree, Kshetras (Phase 11)`
 
-## ⬜ Phase 12 — App.tsx wiring + build polish (NEXT)
-**Files:** `App.tsx`, `pages/*` index re-exports, cleanup of obsolete files
-- Wire `BrowserRouter` with `basename="/Mahabharat"`; mount Navigation
-  + Footer wrapper around `<Routes>` of all 12 pages.
-- Replace the placeholder App.tsx with the real router shell.
-- Remove obsolete files: `utils/sound.ts`, `public/sounds/*`,
-  `public/fonts/Storm Gust.ttf`, `backend/` (if unused), and any leftover
-  `constants.ts` / `parvas.ts` at the repo root.
-- Final build verification; live deploy should pick up the change.
+## 🟢 Phase 12 — App.tsx wiring + build polish (DONE)
+**Files:** [`App.tsx`](App.tsx) · [`index.tsx`](index.tsx) · [`components/Navigation.tsx`](components/Navigation.tsx) · [`README.md`](README.md)
+- App.tsx: mounts `Navigation` + `<Routes>` of all 13 pages + `Footer` in a flex-column shell; unknown paths redirect to `/`.
+- index.tsx: wraps with `HashRouter` — chosen over `BrowserRouter` so
+  GitHub Pages deep-links (e.g. `/Mahabharat/#/characters`) survive a hard
+  refresh without a server-side SPA fallback.
+- Navigation extended to 13 items: added Vanavāsa, Agnātavāsa, Vishvarūpa.
+- Cleanup: removed `utils/sound.ts`, `backend/`, `public/sounds/`,
+  `public/fonts/`, `public/_redirects` (Netlify-only).
+- README rewritten to reflect the new structure.
+- Bundle: 410 KB JS / 129 KB gzipped (react-router added). Live deploy
+  will pick this up automatically on push.
 - ✅ Commit: `feat(app): wire router + cleanup (Phase 12)`
+
+## ⬜ Phase 13 — Deploy verification (NEXT)
+- Push triggers GitHub Actions → `actions/deploy-pages@v4`.
+- Verify `https://unigalactix.github.io/Mahabharat/` serves the full
+  rebuild and not the placeholder.
+- Spot-check deep-links: `/#/characters`, `/#/vanavasa`, `/#/vishwarupa`,
+  `/#/kurukshetra`, `/#/family-tree`.
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -288,3 +298,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 9 (EpisodesPage with 6 phase-filters, VanavasaPage with 9 curated forest highlights + Vana Parva keyEvents, AgnatavasaPage with 6 disguises + 4 closing events + Virata Parva keyEvents) completed. All pages compile clean.
 - **2026-05-29** — Phase 10 (KrishnaPage with 8 names + avatāra purpose + 10 episodes, VishwarupaPage with the `.vishwarupa-stage` darshan + Gītā 11.32 & 11.55 cards, KurukshetraPage with all 18 days driven by KURUKSHETRA_DAYS + commander-pill picker, GitaPage with 7 thematic filters over all 12 shlokas) completed. Build clean.
 - **2026-05-29** — Phase 11 (HousesPage with 7 side-filters + house modal, FamilyTreePage with recursive CHANDRAVANSHA using `.ft-*` classes, KshetrasPage with all 12 sacred sites) completed. All twelve user-facing pages now exist; only Phase 12 (router wiring + cleanup) remains before the rebuild is live.
+- **2026-05-29** — Phase 12 (router wiring + cleanup) completed. App.tsx now mounts Navigation + Routes (13 pages) + Footer; index.tsx wraps with HashRouter (chosen over BrowserRouter so GitHub Pages deep-links survive a refresh without a SPA fallback). Navigation extended to 13 items adding Vanavāsa, Agnātavāsa, Vishvarūpa. Obsolete files removed: `utils/sound.ts`, `backend/`, `public/sounds/`, `public/fonts/`, `public/_redirects`. README rewritten. Bundle: 410 KB JS / 129 KB gzipped (react-router added). Live deploy will pick this up automatically.

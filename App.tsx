@@ -1,25 +1,47 @@
 import React from 'react';
-import { CHARACTERS } from './data/characters';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-// Temporary scaffold during the phased Mahabharata Codex redesign.
-// Replaced in Phase 12 by the full router and pages.
+import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
+
+import { HomePage } from './pages/HomePage';
+import { CharactersPage } from './pages/CharactersPage';
+import { ParvasPage } from './pages/ParvasPage';
+import { EpisodesPage } from './pages/EpisodesPage';
+import { VanavasaPage } from './pages/VanavasaPage';
+import { AgnatavasaPage } from './pages/AgnatavasaPage';
+import { KrishnaPage } from './pages/KrishnaPage';
+import { VishwarupaPage } from './pages/VishwarupaPage';
+import { KurukshetraPage } from './pages/KurukshetraPage';
+import { GitaPage } from './pages/GitaPage';
+import { HousesPage } from './pages/HousesPage';
+import { FamilyTreePage } from './pages/FamilyTreePage';
+import { KshetrasPage } from './pages/KshetrasPage';
+
 const App: React.FC = () => (
-  <div className="min-h-screen flex items-center justify-center px-6 py-24">
-    <div className="glass max-w-2xl w-full p-10 text-center">
-      <div className="font-cinzel text-[11px] tracking-[.4em] uppercase text-goldlight/80 mb-4">
-        Mahabharata Codex · under construction
-      </div>
-      <h1 className="font-display text-4xl md:text-6xl text-gradient-gold leading-tight">
-        जय
-      </h1>
-      <p className="mt-6 font-serif-q italic text-[#ece2c8]">
-        The Codex is being rebuilt phase by phase.
-      </p>
-      <p className="mt-4 text-xs tracking-widest uppercase text-[#c9bd9b]">
-        {CHARACTERS.length} characters · {' '}foundation ready
-      </p>
-      <div className="hr-ornate mt-8"><span>✦</span></div>
+  <div className="min-h-screen flex flex-col bg-ink text-parchment">
+    <Navigation />
+
+    <div className="flex-1">
+      <Routes>
+        <Route path="/"             element={<HomePage />} />
+        <Route path="/characters"   element={<CharactersPage />} />
+        <Route path="/parvas"       element={<ParvasPage />} />
+        <Route path="/episodes"     element={<EpisodesPage />} />
+        <Route path="/vanavasa"     element={<VanavasaPage />} />
+        <Route path="/agnatavasa"   element={<AgnatavasaPage />} />
+        <Route path="/krishna"      element={<KrishnaPage />} />
+        <Route path="/vishwarupa"   element={<VishwarupaPage />} />
+        <Route path="/kurukshetra"  element={<KurukshetraPage />} />
+        <Route path="/gita"         element={<GitaPage />} />
+        <Route path="/houses"       element={<HousesPage />} />
+        <Route path="/family-tree"  element={<FamilyTreePage />} />
+        <Route path="/kshetras"     element={<KshetrasPage />} />
+        <Route path="*"             element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
+
+    <Footer />
   </div>
 );
 
