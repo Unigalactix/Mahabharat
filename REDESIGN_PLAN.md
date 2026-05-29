@@ -67,15 +67,24 @@ Design tokens (already in `index.html`):
   night, Parikshit rescue, and the great departure.
 - ✅ Commit: `data: add Mahabharata episodes (Phase 4)`
 
-## ⬜ Phase 5 — Data: Houses (NEXT)
-**File:** `data/houses.ts`
-- All noble houses of the epic: Kuru, Panchala, Matsya, Yadava/Vrishni,
-  Magadha, Sindhu, Gandhara, Kashi, Kekaya, Madra, Chedi, Anga, Vidarbha,
-  Pragjyotisha, Pandya, Kalinga, Trigarta, Nishadha, Kunti-Bhoja, Salwa,
-  Avanti, Manipura, Naga.
-- Each with capital, region, side at Kurukshetra, patriarch, banner, accent,
-  description and legacy.
+## 🟢 Phase 5 — Data: Houses (DONE)
+**File:** [`data/houses.ts`](data/houses.ts)
+- **23 noble houses** of the epic with capital, region, side at Kurukshetra,
+  patriarch, notable members, banner, accent, description and legacy.
+- Coverage: Kuru, Panchala, Matsya, Yadava/Vrishni, Magadha, Sindhu, Gandhara,
+  Kashi, Kekaya, Madra, Chedi, Anga, Vidarbha, Pragjyotisha, Pandya, Kalinga,
+  Trigarta, Nishadha, Kunti-Bhoja, Avanti, Manipura, Salwa, Naga.
 - ✅ Commit: `data: add noble houses (Phase 5)`
+
+## ⬜ Phase 6 — Data: Kshetras, Lineage, Gita, Kurukshetra-days (NEXT)
+**Files:** `data/kshetras.ts`, `data/lineage.ts`, `data/gita.ts`, `data/kurukshetra.ts`
+- Kshetras: Kurukshetra, Hastinapura, Indraprastha, Mathura, Vrindavan,
+  Dwaraka, Prabhasa, Naimisharanya, etc.
+- Lineage: Chandravansha family tree (Yayati → Puru → Bharata → Kuru → … →
+  Pandavas + Kauravas + Upapandavas + Parikshit).
+- Gita: ~10 defining shlokas including Vishvarupa.
+- Kurukshetra: all 18 days with commander, highlight, fallen[].
+- ✅ Commit: `data: add kshetras, lineage, gita, kurukshetra days (Phase 6)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -178,10 +187,9 @@ Design tokens (already in `index.html`):
 | 1 | Foundation (index.html, types.ts) | ✅ done | `0618a29` |
 | 2 | Data: Characters | ✅ done | `0618a29` |
 | 3 | Data: Parvas | ✅ done | `46234e7` |
-| 4 | Data: Episodes | ✅ done | _this commit_ |
-| 5 | Data: Houses | 🟡 next | — |
-| 5 | Data: Houses | ⬜ | — |
-| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ⬜ | — |
+| 4 | Data: Episodes | ✅ done | `7cc9f57` |
+| 5 | Data: Houses | ✅ done | _this commit_ |
+| 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | 🟡 next | — |
 | 7 | Shared components | ⬜ | — |
 | 8 | Pages I — Home / Characters / Parvas | ⬜ | — |
 | 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ⬜ | — |
@@ -194,3 +202,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
 - **2026-05-29** — Phase 3 (18 Parvas) completed. Pushed as `46234e7`.
 - **2026-05-29** — Phase 4 (22 Episodes) completed. Also fixed deploy.yml: switched from `peaceiris/actions-gh-pages` (which needs gh-pages branch write) to the official `actions/deploy-pages@v4` using the GitHub Pages environment. Repo Settings → Pages source must be set to **GitHub Actions**.
+- **2026-05-29** — Phase 5 (23 noble Houses) completed.
