@@ -57,14 +57,25 @@ Design tokens (already in `index.html`):
 - Each with `number`, `sanskrit`, `meaning`, `summary`, `keyEvents[]`, `accent`.
 - ✅ Commit: `data: add 18 parvas (Phase 3)`
 
-## ⬜ Phase 4 — Data: Episodes (NEXT)
-**File:** `data/episodes.ts`
-- 18–24 episodes spanning: Krishna's birth & lila, Govardhan, Sudarshan, the
-  Rajasuya, the dice game, Draupadi's vastraharan, the 12-year **Vanavasa**, the
-  1-year **Agnatavasa** in Matsya, the failed peace embassy, Vishwarupa, Bhishma
-  Pratigya, Abhimanyu & the Chakravyuha, Karna vs Arjuna, the night of
-  Ashwatthama, Parikshit's rescue, Yudhishthira's ascent.
+## 🟢 Phase 4 — Data: Episodes (DONE)
+**File:** [`data/episodes.ts`](data/episodes.ts)
+- **22 defining episodes** from Krishna's birth in Mathura to Yudhishthira's
+  ascent. Includes Govardhan, Kaliya, Kamsa, Sudarshana, Khandava, Draupadi's
+  swayamvara, Rajasuya & Shishupala, dice game, vastraharan, vanavasa,
+  agnatavasa, peace embassy, Vishvarupa, Bhishma’s shar-shayya, Abhimanyu &
+  Chakravyuha, Jayadratha vadha, Karna vadha, Duryodhana’s thigh, sauptika
+  night, Parikshit rescue, and the great departure.
 - ✅ Commit: `data: add Mahabharata episodes (Phase 4)`
+
+## ⬜ Phase 5 — Data: Houses (NEXT)
+**File:** `data/houses.ts`
+- All noble houses of the epic: Kuru, Panchala, Matsya, Yadava/Vrishni,
+  Magadha, Sindhu, Gandhara, Kashi, Kekaya, Madra, Chedi, Anga, Vidarbha,
+  Pragjyotisha, Pandya, Kalinga, Trigarta, Nishadha, Kunti-Bhoja, Salwa,
+  Avanti, Manipura, Naga.
+- Each with capital, region, side at Kurukshetra, patriarch, banner, accent,
+  description and legacy.
+- ✅ Commit: `data: add noble houses (Phase 5)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -166,8 +177,9 @@ Design tokens (already in `index.html`):
 | 0 | Discovery & Cleanup | ✅ done | — |
 | 1 | Foundation (index.html, types.ts) | ✅ done | `0618a29` |
 | 2 | Data: Characters | ✅ done | `0618a29` |
-| 3 | Data: Parvas | ✅ done | _this commit_ |
-| 4 | Data: Episodes | 🟡 next | — |
+| 3 | Data: Parvas | ✅ done | `46234e7` |
+| 4 | Data: Episodes | ✅ done | _this commit_ |
+| 5 | Data: Houses | 🟡 next | — |
 | 5 | Data: Houses | ⬜ | — |
 | 6 | Data: Kshetras + Lineage + Gita + Kurukshetra days | ⬜ | — |
 | 7 | Shared components | ⬜ | — |
@@ -180,4 +192,5 @@ Design tokens (already in `index.html`):
 
 ## Session log
 - **2026-05-29** — Phases 0, 1, 2 completed in one session. Pushed as `0618a29`. Build verified (1.14s, 229 KB JS / 24 KB HTML).
-- **2026-05-29** — Phase 3 (18 Parvas) completed.
+- **2026-05-29** — Phase 3 (18 Parvas) completed. Pushed as `46234e7`.
+- **2026-05-29** — Phase 4 (22 Episodes) completed. Also fixed deploy.yml: switched from `peaceiris/actions-gh-pages` (which needs gh-pages branch write) to the official `actions/deploy-pages@v4` using the GitHub Pages environment. Repo Settings → Pages source must be set to **GitHub Actions**.
