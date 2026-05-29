@@ -141,13 +141,29 @@ Design tokens (already in `index.html`):
   rendered with `.shloka-card`.
 - ✅ Commit: `feat(pages): Krishna, Vishwarupa, Kurukshetra, Gita (Phase 10)`
 
-## ⬜ Phase 11 — Pages IV: Houses / Family Tree / Kshetras (NEXT)
-**Files:** `pages/HousesPage.tsx`, `pages/FamilyTreePage.tsx`, `pages/KshetrasPage.tsx`
-- HousesPage: filterable by side (Pandava / Kaurava / Neutral / Allied /
-  Divine) over the 23 noble houses.
-- FamilyTreePage: recursive render of CHANDRAVANSHA using ft-* classes.
-- KshetrasPage: 12 sacred sites with map-style cards.
+## 🟢 Phase 11 — Pages IV: Houses / Family Tree / Kshetras (DONE)
+**Files:** [`pages/HousesPage.tsx`](pages/HousesPage.tsx) · [`pages/FamilyTreePage.tsx`](pages/FamilyTreePage.tsx) · [`pages/KshetrasPage.tsx`](pages/KshetrasPage.tsx)
+- HousesPage: side-accented codex cards over all 23 houses, with 7
+  filter pills (All / Pāṇḍava / Allied-Pāṇḍava / Kaurava /
+  Allied-Kaurava / Neutral / Divine) and a full HouseModal showing
+  capital, region, patriarch, notable members, description, and legacy.
+- FamilyTreePage: recursive Chandravansha render using `.ft-tree`,
+  `.ft-row`, `.ft-node`, `.ft-name`, `.ft-spouse`, `.ft-connector` from
+  index.html; horizontally scrollable on small screens; with legend.
+- KshetrasPage: codex-card grid of all 12 sacred sites with story +
+  significance + accent-glyph.
 - ✅ Commit: `feat(pages): Houses, Family Tree, Kshetras (Phase 11)`
+
+## ⬜ Phase 12 — App.tsx wiring + build polish (NEXT)
+**Files:** `App.tsx`, `pages/*` index re-exports, cleanup of obsolete files
+- Wire `BrowserRouter` with `basename="/Mahabharat"`; mount Navigation
+  + Footer wrapper around `<Routes>` of all 12 pages.
+- Replace the placeholder App.tsx with the real router shell.
+- Remove obsolete files: `utils/sound.ts`, `public/sounds/*`,
+  `public/fonts/Storm Gust.ttf`, `backend/` (if unused), and any leftover
+  `constants.ts` / `parvas.ts` at the repo root.
+- Final build verification; live deploy should pick up the change.
+- ✅ Commit: `feat(app): wire router + cleanup (Phase 12)`
 
 ## ⬜ Phase 4 — Data: Episodes (Krishna lila, Vanavasa, Agnatavasa, Bhishma vow…)
 **File:** `data/episodes.ts`
@@ -256,9 +272,9 @@ Design tokens (already in `index.html`):
 | 7 | Shared components | ✅ done | `d5b3ecd` |
 | 8 | Pages I — Home / Characters / Parvas | ✅ done | `9c31e84` |
 | 9 | Pages II — Episodes / Vanavasa / Agnatavasa | ✅ done | `a354930` |
-| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ✅ done | _this commit_ |
-| 11 | Pages IV — Houses / Family Tree / Kshetras | 🟡 next | — |
-| 12 | App.tsx wiring + build polish | ⬜ | — |
+| 10 | Pages III — Krishna / Vishwarupa / Kurukshetra / Gita | ✅ done | `f85c748` |
+| 11 | Pages IV — Houses / Family Tree / Kshetras | ✅ done | _this commit_ |
+| 12 | App.tsx wiring + build polish | 🟡 next | — |
 | 13 | Deploy | ⬜ | — |
 
 ## Session log
@@ -271,3 +287,4 @@ Design tokens (already in `index.html`):
 - **2026-05-29** — Phase 8 (HomePage, CharactersPage, ParvasPage) completed. Pages compile clean but are still tree-shaken until App.tsx wires the router in Phase 12.
 - **2026-05-29** — Phase 9 (EpisodesPage with 6 phase-filters, VanavasaPage with 9 curated forest highlights + Vana Parva keyEvents, AgnatavasaPage with 6 disguises + 4 closing events + Virata Parva keyEvents) completed. All pages compile clean.
 - **2026-05-29** — Phase 10 (KrishnaPage with 8 names + avatāra purpose + 10 episodes, VishwarupaPage with the `.vishwarupa-stage` darshan + Gītā 11.32 & 11.55 cards, KurukshetraPage with all 18 days driven by KURUKSHETRA_DAYS + commander-pill picker, GitaPage with 7 thematic filters over all 12 shlokas) completed. Build clean.
+- **2026-05-29** — Phase 11 (HousesPage with 7 side-filters + house modal, FamilyTreePage with recursive CHANDRAVANSHA using `.ft-*` classes, KshetrasPage with all 12 sacred sites) completed. All twelve user-facing pages now exist; only Phase 12 (router wiring + cleanup) remains before the rebuild is live.
